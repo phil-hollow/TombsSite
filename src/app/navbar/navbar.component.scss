@@ -1,0 +1,125 @@
+/*---------- VARIABLES ----------*/
+
+//---colors---
+$mainColor: #ffffff;
+$blackColor: #000000;
+$blackSmokeColor: #343434;
+$redColor: #c65f5f;
+
+/*--------------------*/
+
+.header {
+    position: fixed;
+    width: 100%;
+    height: 120px;
+    background-color: $blackSmokeColor;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 100%;
+}
+
+.logo {
+    max-width: 263px;
+    &:hover > .logo__link > .logo__pic rect {
+        fill: $mainColor;
+        transition: 0.8s;
+    }
+}
+
+.logo__link {
+    display: flex;
+}
+.logo__pic {
+    max-width: 100%;
+
+    margin-right: 20px;
+}
+.logo__text {
+    font-family: "Pacifico", sans-serif;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 140%;
+}
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.nav__item {
+    flex-wrap: wrap;
+    margin-right: 30px;
+
+    &:nth-child(4) {
+        margin-right: 60px;
+    }
+}
+.nav__link {
+    position: relative;
+
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 29px;
+    text-transform: uppercase;
+
+    &:hover,
+    &:target,
+    &:active {
+        color: $redColor;
+        transition: 0.8s;
+        &::after {
+            content: "";
+            display: block;
+            position: absolute;
+            left: 5%;
+            width: 90%;
+            height: 2px;
+            margin-top: 10px;
+            background-color: $redColor;
+
+            animation-name: line;
+            animation-duration: 400ms;
+
+            @keyframes line {
+                0% {
+                    left: 5%;
+                    width: 1%;
+                }
+                100% {
+                    right: 100%;
+                    width: 90%;
+                }
+            }
+        }
+    }
+}
+.order-cart {
+    &:hover > .order-cart__link > .order-cart__pic rect,
+    &:target > .order-cart__link > .order-cart__pic rect,
+    &:active > .order-cart__link > .order-cart__pic rect {
+        fill: $redColor;
+        transition: 0.8s;
+    }
+}
+.order-cart__link {
+    display: flex;
+}
+.order-cart__pic {
+    margin-right: 10px;
+}
+.order-cart__price {
+    align-self: center;
+
+    font-weight: normal;
+    font-size: 26px;
+    line-height: 32px;
+
+    margin-right: 5px;
+}
+.order-cart__arrow {
+    align-self: center;
+}
