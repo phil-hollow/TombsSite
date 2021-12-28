@@ -92,9 +92,8 @@ $redColor: #c65f5f;
 /*--------------------*/
 body {
     font-family: "Montserrat";
-
+    padding-top: 100px;
     color: $mainColor;
-    overflow: hidden;
 }
 a {
     color: $mainColor;
@@ -103,4 +102,16 @@ a {
     max-width: 1320px;
     margin: 0 auto;
     padding: 0 15px;
+}
+.title {
+    font-weight: bold;
+    font-size: 55px;
+    line-height: 67px;
+    text-transform: uppercase;
+}
+.btn {
+    background-color: $redColor;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+    color: $mainColor;
+    border-radius: 25px;
 }

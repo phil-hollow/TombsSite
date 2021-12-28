@@ -1,1 +1,45 @@
-<p>products-page works!</p>
+<div class="products">
+    <div class="container">
+        <div class="title products__title">каталог товаров</div>
+
+
+        <div class="products-nav">
+            <button class="btn products-nav__btn">Сначала дешёвые</button>
+
+            <div class="products-nav__price">
+
+                <div class="products-nav__price-text">Цена от:</div>
+                <input type="text" class="products-nav__input">
+
+                <div class="products-nav__price-text">до:</div>
+                <input type="text" class="products-nav__input">
+            </div>
+
+            <div class="products-nav__search">
+
+                <input type="text" class="products-nav__search-input">
+                <input class="products-nav__search-btn2" type="submit" value="">
+            </div>
+        </div>
+
+
+        <div class="products-items">
+
+            <div class="products-item" *ngFor="let product of currentProducts">
+                <div class="products-item__wrapper-pic">
+                    <img src="../../../assets/product-images/{{product.picture}}" class="products-item__pic">
+                </div>
+                <div class="products-item__title">{{product.name}}</div>
+                <div class="products-item__title">{{product.price}}</div>
+                <button class="btn products-item__btn">Подробнее</button>
+            </div>
+        </div>
+
+
+        <div class="products-switcher">
+            <button (click)="ChangePage(-1)" class="btn products-switcher__btn">&lt;</button>
+            <div class="products-switcher__page-number-text">{{currentPage +"/" + pages}}</div>
+            <button (click)="ChangePage(1)" class="btn products-switcher__btn">&gt;</button>
+        </div>
+    </div>
+</div>
