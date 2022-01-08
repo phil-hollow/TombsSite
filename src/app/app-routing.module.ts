@@ -11,8 +11,8 @@ const routes: Routes = [
     { path: '', component: MainPageComponent },
     { path: 'order-confirm', component: OrdersConfirmationPageComponent },
     { path: 'order', component: OrdersPageComponent },
-    { path: 'info', component: ProductInfoPageComponent },
-    { path: 'products', component: ProductsPageComponent },
+    { path: 'product/:info', component: ProductInfoPageComponent },
+    { path: 'products/:page', component: ProductsPageComponent },
     { path: 'services', component: ServicesPageComponent },
     { path: '**', component: MainPageComponent }
 ];
