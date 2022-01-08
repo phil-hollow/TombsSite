@@ -64,6 +64,8 @@ export class ProductsPageComponent implements OnInit {
         this.router.navigate([`/product`, id])
       }
 
+      // Пора пойти пожрать
+
 
 
 }
