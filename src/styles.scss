@@ -88,6 +88,7 @@ $mainColor: #ffffff;
 $blackColor: #000000;
 $blackSmokeColor: #343434;
 $redColor: #c65f5f;
+$btnHoverColor: #ad4f4f;
 
 /*--------------------*/
 body {
@@ -95,9 +96,11 @@ body {
     padding-top: 100px;
     color: $mainColor;
 }
+
 a {
     color: $mainColor;
 }
+
 .container {
     max-width: 1320px;
     margin: 0 auto;
@@ -114,4 +117,9 @@ a {
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
     color: $mainColor;
     border-radius: 25px;
+}
+.btn:hover {
+    background-color: $btnHoverColor;
+    transition: 0.7s;
+    transform: scale(1.05);
 }

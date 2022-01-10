@@ -8,13 +8,14 @@ $redColor: #c65f5f;
     color: $blackColor;
 }
 .info-page__wrapper {
-    padding-top: 100px;
+    padding-top: 70px;
     margin-bottom: 70px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 .info-page__product {
+    max-width: 500px;
     flex-basis: 40%;
     align-self: center;
     margin-right: 20px;
@@ -22,7 +23,7 @@ $redColor: #c65f5f;
 }
 .info-page__product-photo {
     width: 100%;
-    min-width: 320px;
+    min-width: 300px;
     margin-bottom: 10px;
 }
 .info-page__product-price {
@@ -33,6 +34,7 @@ $redColor: #c65f5f;
     color: #c65f5f;
 }
 .info-page__description {
+    max-width: 670px;
     flex-basis: 53%;
     border: $blackColor 4px solid;
     border-radius: 20px;
@@ -55,27 +57,36 @@ $redColor: #c65f5f;
     margin-bottom: 35px;
 }
 .info-page__description-material--bold {
-    font-size: 30px;
+    font-size: 26px;
     font-weight: 500;
 }
 .info-page__description-subtitle {
     font-weight: bold;
-    font-size: 35px;
+    font-size: 30px;
     line-height: 43px;
     margin-bottom: 15px;
 }
 .info-page__description-text {
-    max-height: 280px;
+    max-height: 290px;
     overflow-y: scroll;
-    font-size: 22px;
+    font-size: 16px;
     line-height: 37px;
     margin-bottom: 50px;
+    scrollbar-width: 10px;
+    scrollbar-color: $redColor white;
+}
+.info-page__description-text::-webkit-scrollbar {
+    width: 10px;
+    background-color: white;
+}
+.info-page__description-text::-webkit-scrollbar-thumb {
+    background-color: $redColor;
 }
 .info-page__buttons {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
 }
 .info-page__btn {
     width: 280px;
