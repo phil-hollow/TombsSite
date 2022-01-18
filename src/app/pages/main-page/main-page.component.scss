@@ -1,14 +1,81 @@
+//---colors---
+$mainColor: #ffffff;
+$blackColor: #000000;
+$blackSmokeColor: #343434;
+$redColor: #c65f5f;
+$btnHoverColor: #ad4f4f;
+
+//---media screens start---
+@media (max-width: 1200px) {
+    .about__img {
+        min-width: 486px;
+    }
+}
+@media (max-width: 992px) {
+    .about__img {
+        min-width: 430px;
+    }
+}
+//---media screens end---
 .about {
+    padding-top: 100px;
+    width: 100%;
+    height: 100vh;
+    color: $blackColor;
+}
+.about-wrapper {
+    display: flex;
+    margin-top: 43px;
+}
+.about-column {
+    flex-direction: column;
+    min-width: 700px;
 }
 .about__title {
+    padding-top: 150px;
+    max-width: 700px;
+    font-weight: bold;
+    font-size: 50px;
+    line-height: 80px;
+    margin-bottom: 60px;
 }
 .about__text {
+    max-width: 800px;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 60px;
+    margin-bottom: 70px;
 }
 .about__btn {
+    font-weight: 500;
+    font-size: 35px;
+    line-height: 49px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 350px;
+    height: 70px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+.about__img-wrapper {
+}
+.about__img {
+    width: 100%;
+    min-width: 486px;
+    height: auto;
 }
 .benefits {
+    height: 100vh;
+    background-color: $blackSmokeColor;
 }
 .benefits__title {
+    padding-top: 80px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 50px;
+    line-height: 67px;
+    text-transform: uppercase;
 }
 .benefits__pic {
 }
@@ -17,4 +84,32 @@
 .benefits__row {
 }
 .benefits__text {
+}
+.contacts {
+    width: 100%;
+    height: 100%;
+    color: $blackColor;
+}
+.container {
+}
+.contacts__title {
+}
+.socials {
+}
+.socials__column {
+}
+.socials__links {
+    color: $blackColor;
+}
+.form-wrapper {
+}
+.contacts-from {
+}
+.contacts-from__input-tel {
+}
+.contacts-from__input-name {
+}
+.contacts-form__btn {
+}
+.btn {
 }

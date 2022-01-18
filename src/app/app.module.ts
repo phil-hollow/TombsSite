@@ -10,25 +10,23 @@ import { OrdersPageComponent } from './pages/orders-page/orders-page.component';
 import { OrdersConfirmationPageComponent } from './pages/orders-confirmation-page/orders-confirmation-page.component';
 import { ServicesPageComponent } from './pages/services-page/services-page.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    MainPageComponent,
-    ProductsPageComponent,
-    ProductInfoPageComponent,
-    OrdersPageComponent,
-    OrdersConfirmationPageComponent,
-    ServicesPageComponent,
-    NavbarComponent,
-    FooterComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        MainPageComponent,
+        ProductsPageComponent,
+        ProductInfoPageComponent,
+        OrdersPageComponent,
+        OrdersConfirmationPageComponent,
+        ServicesPageComponent,
+        NavbarComponent,
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

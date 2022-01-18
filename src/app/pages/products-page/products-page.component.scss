@@ -7,9 +7,8 @@ $blackSmokeColor: #343434;
 $redColor: #c65f5f;
 
 /*--------------------*/
-
 .products {
-    padding-top: 80px;
+    padding-top: 180px;
 }
 .products__title {
     text-align: center;
@@ -141,9 +140,9 @@ $redColor: #c65f5f;
 .products-switcher {
     display: flex;
     max-width: 700px;
-    height: 40px;
+    height: 45px;
     margin: 0 auto;
-    margin-bottom: 40px;
+    padding-bottom: 100px;
 }
 .products-switcher__btn {
     width: 220px;

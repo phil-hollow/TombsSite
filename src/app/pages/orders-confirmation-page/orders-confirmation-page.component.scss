@@ -1,0 +1,187 @@
+//---colors---
+$mainColor: #ffffff;
+$blackColor: #000000;
+$blackSmokeColor: #343434;
+$redColor: #c65f5f;
+$redCircleColor: #c77979;
+$blackCircleColor: #564f4f;
+
+.confirmation-page {
+    min-height: 100%;
+    color: $blackColor;
+    padding-top: 100px;
+    background: url(../../../assets/images/redEllipse.png) 820px -150px no-repeat,
+        url(../../../assets/images/blackEllipse.png) -235px -33% no-repeat;
+    background-size: fixed;
+}
+.confirmation-page__wrapper {
+    padding-top: 90px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.confirmation-page__products {
+    flex-basis: 50%;
+    margin-bottom: 60px;
+}
+.confirmation-page__products-title {
+    position: relative;
+    top: 0;
+    left: 10%;
+    font-weight: bold;
+    font-size: 50px;
+    line-height: 61px;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+    color: $mainColor;
+}
+.confirmation-page__products-block {
+    max-height: 500px;
+    margin-bottom: 40px;
+    padding-right: 10px;
+    overflow-y: auto;
+    scrollbar-width: 10px;
+    scrollbar-color: $redColor white;
+}
+.confirmation-page__products-block::-webkit-scrollbar {
+    width: 10px;
+    background-color: white;
+}
+.confirmation-page__products-block::-webkit-scrollbar-thumb {
+    background-color: $redColor;
+}
+.products-item {
+    display: flex;
+    width: 100%;
+    min-height: 130px;
+    margin-bottom: 20px;
+    background-color: $mainColor;
+    border: 1px solid black;
+}
+.products-item__pic {
+    margin: auto 15px;
+    width: 100px;
+    height: 100px;
+}
+.products-item__text-wrapper {
+    padding-top: 10px;
+    max-height: 110px;
+}
+.products-item__title {
+    min-width: 200px;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 37px;
+    padding-bottom: 5px;
+}
+.products-item__description {
+    max-height: 72px;
+    font-size: 16px;
+    line-height: 24px;
+    overflow-y: auto;
+    scrollbar-width: 10px;
+    scrollbar-color: $redColor white;
+}
+.products-item__description::-webkit-scrollbar {
+    width: 10px;
+    background-color: white;
+}
+.products-item__description::-webkit-scrollbar-thumb {
+    background-color: $redColor;
+}
+.products-item__price {
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 37px;
+    align-self: center;
+    margin: 0 10px;
+}
+.confirmation-page__products-price {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0 auto;
+    padding: 12px 20px;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 43px;
+
+    max-width: 350px;
+    min-height: 60px;
+    max-height: 90px;
+    background-color: #c77979;
+    color: $mainColor;
+}
+.confirmation-page__contact {
+    flex-basis: 40%;
+}
+.confirmation-page__contact-title {
+    font-weight: bold;
+    font-size: 50px;
+    line-height: 61px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 50px;
+}
+.confirmation-page__contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.confirmation-page__contact-input {
+    width: 400px;
+    height: 57px;
+    margin-bottom: 40px;
+    padding: 20px;
+    font-size: 22px;
+    border: 2px solid #000000;
+    box-sizing: border-box;
+    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+}
+.confirmation-page__contact-input:hover {
+    border-color: $redColor;
+    transition: 0.3s;
+}
+.confirmation-page__contact-input:target {
+    border-color: $redColor;
+    transition: 0.3s;
+}
+.confirmation-page__contact-input:focus {
+    border-color: $redColor;
+}
+.confirmation-page__contact-textarea {
+    width: 400px;
+    height: 160px;
+    padding: 20px;
+    margin-bottom: 40px;
+    font-size: 22px;
+    border: 2px solid #000000;
+    box-sizing: border-box;
+    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+}
+.confirmation-page__contact-textarea:hover {
+    border-color: $redColor;
+    transition: 0.3s;
+}
+.confirmation-page__contact-textarea:target {
+    border-color: $redColor;
+    transition: 0.3s;
+}
+.confirmation-page__contact-textarea:focus {
+    border-color: $redColor;
+}
+.confirmation-page__contact-btn {
+    width: 288.41px;
+    height: 67px;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 27px;
+    text-transform: uppercase;
+    border: 1px solid black;
+    background-color: $mainColor;
+    color: $redColor;
+}
