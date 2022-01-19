@@ -1,46 +1,93 @@
-# See http://help.github.com/ignore-files/ for more about ignoring files.
+# See http:/help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
-/dist
-/tmp
-/out-tsc
+TombsSite/dist
+TombsSite/tmp
+TombsSite/out-tsc
 # Only exists if Bazel was run
-/bazel-out
+TombsSite/bazel-out
 
 # dependencies
-/node_modules
+TombsSite/node_modules
 
 # profiling files
-chrome-profiler-events*.json
+TombsSite/chrome-profiler-events*.json
 
 # IDEs and editors
-/.idea
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
+TombsSite/.idea
+TombsSite/.project
+TombsSite/.classpath
+TombsSite/.c9/
+TombsSite/*.launch
+TombsSite/.settings/
+TombsSite/*.sublime-workspace
 
 # IDE - VSCode
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-.history/*
+TombsSite/.vscode/*
+TombsSite/!.vscode/settings.json
+TombsSite/!.vscode/tasks.json
+TombsSite/!.vscode/launch.json
+TombsSite/!.vscode/extensions.json
+TombsSite/.history/*
 
 # misc
-/.angular/cache
-/.sass-cache
-/connect.lock
-/coverage
-/libpeerconnection.log
-npm-debug.log
-yarn-error.log
-testem.log
-/typings
+TombsSite/.angular/cache
+TombsSite/.sass-cache
+TombsSite/connect.lock
+TombsSite/coverage
+TombsSite/libpeerconnection.log
+TombsSite/npm-debug.log
+TombsSite/yarn-error.log
+TombsSite/testem.log
+TombsSite/typings
 
 # System Files
-.DS_Store
-Thumbs.db
+TombsSite/.DS_Store
+TombsSite/Thumbs.db
+
+# See http:/help.github.com/ignore-files/ for more about ignoring files.
+
+# compiled output
+TombsServer/dist
+TombsServer/tmp
+TombsServer/out-tsc
+# Only exists if Bazel was run
+TombsServer/bazel-out
+
+# dependencies
+TombsServer/node_modules
+
+# profiling files
+TombsServer/chrome-profiler-events*.json
+
+# IDEs and editors
+TombsServer/.idea
+TombsServer/.project
+TombsServer/.classpath
+TombsServer/.c9/
+TombsServer/*.launch
+TombsServer/.settings/
+TombsServer/*.sublime-workspace
+
+# IDE - VSCode
+TombsServer/.vscode/*
+TombsServer/!.vscode/settings.json
+TombsServer/!.vscode/tasks.json
+TombsServer/!.vscode/launch.json
+TombsServer/!.vscode/extensions.json
+TombsServer/.history/*
+
+# misc
+TombsServer/.angular/cache
+TombsServer/.sass-cache
+TombsServer/connect.lock
+TombsServer/coverage
+TombsServer/libpeerconnection.log
+TombsServer/npm-debug.log
+TombsServer/yarn-error.log
+TombsServer/testem.log
+TombsServer/typings
+
+# System Files
+TombsServer/.DS_Store
+TombsServer/Thumbs.erver
