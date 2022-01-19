@@ -5,8 +5,12 @@ $blackSmokeColor: #343434;
 $redColor: #c65f5f;
 
 .info-page {
-    color: $blackColor;
+    min-height: 100%;
+    color: $mainColor;
     padding-top: 100px;
+    background: url(../../../assets/images/redEllipse.png) 820px -150px no-repeat,
+        url(../../../assets/images/blackEllipse.png) -235px -33% no-repeat;
+    background-size: fixed;
 }
 .info-page__wrapper {
     padding-top: 70px;
@@ -19,20 +23,24 @@ $redColor: #c65f5f;
     max-width: 500px;
     flex-basis: 40%;
     align-self: center;
-    margin-right: 20px;
-    padding-top: 20px;
+    padding-top: 80px;
 }
 .info-page__product-photo {
     width: 100%;
-    min-width: 300px;
+    max-height: 470px;
+    min-width: 280px;
     margin-bottom: 10px;
+    padding: 10px;
+    border: 3px solid $mainColor;
+    border-radius: 25px;
 }
 .info-page__product-price {
     text-align: center;
     font-weight: bold;
     font-size: 40px;
     line-height: 67px;
-    color: #c65f5f;
+    margin-bottom: 20px;
+    color: $mainColor;
 }
 .info-page__description {
     max-width: 670px;
@@ -51,6 +59,7 @@ $redColor: #c65f5f;
     font-weight: bold;
     font-size: 45px;
     line-height: 55px;
+    text-shadow: 2px 2px 2px $blackColor;
 }
 .info-page__description-material {
     font-size: 26px;
@@ -85,7 +94,7 @@ $redColor: #c65f5f;
 }
 .info-page__buttons {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
     margin-bottom: 50px;
 }
@@ -98,5 +107,96 @@ $redColor: #c65f5f;
     margin-bottom: 20px;
     &:nth-child(2) {
         margin-right: 0;
+    }
+}
+
+/* Large desktops and laptops */
+@media (max-width: 1200px) {
+}
+/* Landscape tablets and medium desktops */
+@media (max-width: 1199.98px) {
+}
+/* Portrait tablets and small desktops */
+@media (max-width: 991.98px) {
+    .info-page {
+        padding-top: 40px;
+        background: #564f4f;
+    }
+    .info-page__wrapper {
+        flex-direction: column;
+    }
+    .info-page__product-photo {
+        width: 500px;
+    }
+    .info-page__description {
+        max-width: 100%;
+    }
+    .info-page__description-container {
+        max-width: 725px;
+    }
+}
+
+/* Landscape phones and portrait tablets */
+@media (max-width: 767.98px) {
+    .info-page {
+        padding-top: 30px;
+    }
+    .info-page__product-photo {
+        width: 440px;
+        margin-left: 20px;
+    }
+}
+
+/* Portrait phones and smaller */
+@media (max-width: 480.98px) {
+    .info-page {
+        padding-top: 10px;
+    }
+    .info-page__wrapper {
+        margin-bottom: 40px;
+    }
+    .info-page__product-photo {
+        width: 100%;
+        max-width: 350px;
+        margin: 0;
+    }
+    .info-page__description-title {
+        margin: 25px 15px;
+        text-align: center;
+        font-weight: bold;
+        font-size: 40px;
+        line-height: 55px;
+        text-shadow: 2px 2px 2px $blackColor;
+    }
+    .info-page__description-material {
+        font-size: 22px;
+        margin-bottom: 10px;
+    }
+    .info-page__description-subtitle {
+        font-weight: bold;
+        font-size: 26px;
+        line-height: 43px;
+        margin-bottom: 15px;
+    }
+    .info-page__description-text {
+        margin-bottom: 30px;
+    }
+    .info-page__buttons {
+        flex-wrap: wrap;
+    }
+    .info-page__btn {
+        margin-right: 0;
+    }
+}
+
+/* Iphone 5 */
+@media (max-width: 320.98px) {
+    .info-page__product-photo {
+        max-width: 250px;
+        margin: 0;
+    }
+    .info-page__product-price {
+        font-size: 35px;
+        margin-bottom: 10px;
     }
 }
