@@ -10,6 +10,7 @@ import { OrdersPageComponent } from './pages/orders-page/orders-page.component';
 import { OrdersConfirmationPageComponent } from './pages/orders-confirmation-page/orders-confirmation-page.component';
 import { ServicesPageComponent } from './pages/services-page/services-page.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { AdminLoginComponent } from './pages/admin-login/admin-login.component';
 
 @NgModule({
     declarations: [
@@ -21,6 +22,7 @@ import { NavbarComponent } from './navbar/navbar.component';
         OrdersConfirmationPageComponent,
         ServicesPageComponent,
         NavbarComponent,
+        AdminLoginComponent,
     ],
     imports: [
         BrowserModule,
