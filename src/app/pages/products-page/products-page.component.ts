@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DataService } from 'src/app/data/data.service';
+import { Subscription } from 'rxjs';
+import { ProductService } from 'src/app/data/product.service';
 import { Tomb } from 'src/app/models/tomb';
 
 
@@ -13,29 +14,31 @@ import { Tomb } from 'src/app/models/tomb';
 export class ProductsPageComponent implements OnInit {
 
     currentProducts: Array<Tomb> = new Array<Tomb>();
-    products: Tomb[];
+    products: Array<Tomb> = new Array<Tomb>();
     currentPage: number = 1;
-    pages: number;
+    pages: number = 1;
     currentPageId: any = 1;
-    constructor(private dataService: DataService, private activatedRoute: ActivatedRoute, private router: Router) {
-        this.products = dataService.GetProducts();
-        this.pages = Math.ceil(this.products.length / 12);
-        this.GetCurrentProducts();
-        this.currentPageId = Number(activatedRoute.snapshot.params['page']);
-        if(typeof this.currentPageId === 'number' && this.currentPageId > 0 && this.currentPageId <= this.pages){
-            this.currentPage = this.currentPageId; 
-        }else{
-            this.currentPageId = this.currentPage = 1;
-        }
-
-        this.GetCurrentProducts();
-        console.log(this.currentPageId);
-        
-        
+    subscribes = new Array<Subscription>();
+    constructor(private productService: ProductService, private activatedRoute: ActivatedRoute, private router: Router) {
+        this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     }
 
     ngOnInit(): void {
-        console.log(this.currentPage)
+        
+        this.subscribes.push(this.productService.GetProducts().subscribe((res: any) => {
+            this.products = res;
+            this.pages = Math.ceil(this.products.length / 12);
+
+            this.GetCurrentProducts();
+            this.currentPageId = Number(this.activatedRoute.snapshot.params['page']);
+            if (typeof this.currentPageId === 'number' && this.currentPageId > 0 && this.currentPageId <= this.pages) {
+                this.currentPage = this.currentPageId;
+            } else {
+                this.currentPageId = this.currentPage = 1;
+            }
+            this.GetCurrentProducts();
+        })
+        )
     }
 
     GetCurrentProducts() {
@@ -56,15 +59,18 @@ export class ProductsPageComponent implements OnInit {
             this.router.navigate(['/products', this.currentPage])
             console.log(newPage);
         }
-        
-        
     }
 
-    CurrentTomb(id: number){
+    CurrentTomb(id: number) {
         this.router.navigate([`/product`, id])
-      }
+    }
 
-      // Пора пойти пожрать
+    ngOnDestroy() {
+        this.subscribes.forEach(sub => {
+            sub.unsubscribe();
+        })
+        this.router.routeReuseStrategy.shouldReuseRoute = () => true;
+    }
 
 
 

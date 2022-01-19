@@ -14,7 +14,7 @@ const routes: Routes = [
     { path: 'product/:info', component: ProductInfoPageComponent },
     { path: 'products/:page', component: ProductsPageComponent },
     { path: 'services', component: ServicesPageComponent },
-    { path: '**', component: MainPageComponent }
+    { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 
 @NgModule({
