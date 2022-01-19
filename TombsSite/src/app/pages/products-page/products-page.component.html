@@ -4,6 +4,11 @@
 
 
         <div class="products-nav">
+
+            <!--- Admin-panel element start --->
+            <button class="products__add-product btn">новый продукт</button>
+            <!--- Admin-panel element end --->
+
             <button class="btn products-nav__btn">Сначала дешёвые</button>
 
             <div class="products-nav__price">
@@ -26,11 +31,19 @@
         <div class="products-items">
 
             <div class="products-item" *ngFor="let product of currentProducts">
+
+                <!--- Admin-panel element start --->
+                <div class="products-itmes__admin-wrapper">
+                    <img src="../../../assets/images/admin-edit.svg" class="products-items__icon">
+                    <img src="../../../assets/images/admin-close.svg" class="products-items__icon">
+                </div>
+                <!--- Admin-panel element end --->
+
                 <div class="products-item__wrapper-pic">
                     <img src="../../../assets/product-images/{{product.picture}}" class="products-item__pic">
                 </div>
                 <div class="products-item__title">{{product.name}}</div>
-                <div class="products-item__title">{{product.price}}</div>
+                <div class="products-item__title">{{product.price}} грн</div>
                 <button class="btn products-item__btn" (click)="CurrentTomb(product.id)">Подробнее</button>
             </div>
         </div>
