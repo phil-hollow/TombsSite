@@ -45,7 +45,8 @@ $redColor: #c65f5f;
 .info-page__description {
     max-width: 670px;
     flex-basis: 53%;
-    border: $blackColor 4px solid;
+    background-color: #000;
+    background-color: rgba(0, 0, 0, 0.3);
     border-radius: 20px;
 }
 .info-page__description-container {
@@ -110,12 +111,6 @@ $redColor: #c65f5f;
     }
 }
 
-/* Large desktops and laptops */
-@media (max-width: 1200px) {
-}
-/* Landscape tablets and medium desktops */
-@media (max-width: 1199.98px) {
-}
 /* Portrait tablets and small desktops */
 @media (max-width: 991.98px) {
     .info-page {
@@ -130,6 +125,7 @@ $redColor: #c65f5f;
     }
     .info-page__description {
         max-width: 100%;
+        background-color: rgba(190, 95, 95, 0.45);
     }
     .info-page__description-container {
         max-width: 725px;
