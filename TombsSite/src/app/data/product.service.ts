@@ -14,7 +14,7 @@ export class ProductService {
         return this.http.get(environment.serverUrl + "/GetProducts");
     }
     GetProductById(id: number){
-        return this.http.get(environment.serverUrl + "/GetProducts/" + id.toString());
+        return this.http.get(environment.serverUrl + "/GetProductById/" + id.toString());
     }
     AddProduct(product: Tomb) {
         return this.http.post(environment.serverUrl + "/AddProduct", { product: product });

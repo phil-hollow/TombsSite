@@ -1,7 +1,7 @@
 import bodyParser from 'body-parser';
 import { Express } from 'express';
 import { ProductHandler } from './Handlers/ProductHandler';
-
+import express from 'express';
 export class ServerHelper {
 
     constructor() {
@@ -10,6 +10,7 @@ export class ServerHelper {
     static SetUpServer(app: Express) {
         app.use(bodyParser.urlencoded({ extended: false }));
         app.use(bodyParser.json());
+        app.use('/images',express.static(__dirname+'/Data/images'));
         app.use(function (req, res, next) {
             res.setHeader('Access-Control-Allow-Origin', '*');
             res.setHeader('Access-Control-Allow-Methods', '*');

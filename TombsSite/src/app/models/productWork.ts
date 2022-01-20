@@ -1,11 +1,12 @@
-export class Tomb {
+import { Tomb } from "./tomb";
+
+export class ProductWork {
     id: number 
     name: string | undefined
     description: string | undefined
-    material: string | undefined
     price: number | undefined
     picture: string | undefined
-    constructor() {
+    constructor(){
         this.id = Date.now();
     }
 }
