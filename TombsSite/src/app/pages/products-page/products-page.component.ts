@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ProductService } from 'src/app/data/product.service';
 import { Tomb } from 'src/app/models/tomb';
+import { environment } from 'src/environments/environment.prod';
+
 
 
 
@@ -12,7 +14,7 @@ import { Tomb } from 'src/app/models/tomb';
     styleUrls: ['./products-page.component.scss']
 })
 export class ProductsPageComponent implements OnInit {
-
+    ServerImagesUrl:string = environment.serverUrl
     currentProducts: Array<Tomb> = new Array<Tomb>();
     products: Array<Tomb> = new Array<Tomb>();
     currentPage: number = 1;
@@ -62,6 +64,7 @@ export class ProductsPageComponent implements OnInit {
     }
 
     CurrentTomb(id: number) {
+        sessionStorage.setItem('previousPage',this.currentPage.toString());
         this.router.navigate([`/product`, id])
     }
 

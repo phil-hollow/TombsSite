@@ -27,7 +27,7 @@
 
             <div class="products-item" *ngFor="let product of currentProducts">
                 <div class="products-item__wrapper-pic">
-                    <img src="../../../assets/product-images/{{product.picture}}" class="products-item__pic">
+                    <img src="{{ServerImagesUrl +'/images/'+product.picture}}" class="products-item__pic">
                 </div>
                 <div class="products-item__title">{{product.name}}</div>
                 <div class="products-item__title">{{product.price}}</div>

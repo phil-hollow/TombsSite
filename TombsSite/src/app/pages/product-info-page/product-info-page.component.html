@@ -1,30 +1,23 @@
-<div class="info-page">
+<div class="info-page" id="info-page">
     <div class="container">
         <div class="info-page__wrapper">
             <div class="info-page__product">
-                <img src="../../../assets/images/product-info-pic.jpg" alt="" class="info-page__product-photo">
-                <div class="info-page__product-price">4822 грн</div>
+                <img src="{{ServerImagesUrl +'/images/'+currentProduct.picture}}" alt="" class="info-page__product-photo">
+                <div class="info-page__product-price">{{currentProduct.price}} грн</div>
             </div>
             <div class="info-page__description">
-                <h2 class="info-page__description-title">lorem ipsum</h2>
+                <h2 class="info-page__description-title">{{currentProduct.name}}</h2>
                 <div class="info-page__description-container">
                     <div class="info-page__description-material"><span
-                            class="info-page__description-material--bold">lorem: </span>ipsum</div>
-                    <h3 class="info-page__description-subtitle">lorem</h3>
-                    <div class="info-page__description-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                        Incidunt enim aspernatur perspiciatis explicabo repellat eos voluptate dolore laborum
-                        consequuntur, quidem iure dignissimos quos. Error officia rerum facilis quidem nam
-                        exercitationem!
-                        Nisi maxime, distinctio architecto inventore provident dolore quisquam magni dolores explicabo
-                        temporibus, quibusdam similique perspiciatis qui accusantium deleniti labore voluptas soluta
-                        porro adipisci earum quo mollitia, id possimus
-                        deserunt? Rerum!</div>
+                            class="info-page__description-material--bold">Материал: </span>{{currentProduct.material}}</div>
+                    <h3 class="info-page__description-subtitle">Описание</h3>
+                    <div class="info-page__description-text">{{currentProduct.description}}</div>
                 </div>
             </div>
         </div>
         <div class="info-page__buttons">
-            <button class="info-page__btn btn">в корзину</button>
-            <button class="info-page__btn btn">назад</button>
+            <button (click)="AddToOrder()" class="info-page__btn btn">в корзину</button>
+            <button (click)="GoBack()" class="info-page__btn btn">назад</button>
         </div>
     </div>
 </div>
