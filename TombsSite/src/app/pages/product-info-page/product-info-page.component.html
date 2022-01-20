@@ -2,7 +2,7 @@
     <div class="container">
         <div class="info-page__wrapper">
             <div class="info-page__product">
-                <img src="{{ServerImagesUrl +'/images/'+currentProduct.picture}}" alt="" class="info-page__product-photo">
+                <img *ngIf='currentProduct.picture' src="{{ServerImagesUrl +'/images/'+currentProduct.picture}}" alt="" class="info-page__product-photo">
                 <div class="info-page__product-price">{{currentProduct.price}} грн</div>
             </div>
             <div class="info-page__description">
