@@ -5,182 +5,414 @@ $blackSmokeColor: #343434;
 $redColor: #c65f5f;
 $btnHoverColor: #ad4f4f;
 
+//----------------------------
+
+//-------------------------------------------------   ABOUT START   -------------------------------------------------
 .about {
-    padding-top: 100px;
-    width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     color: $blackColor;
-    background: url(../../../assets/images/about-pic.jpg) 80% 60% no-repeat;
-    background-size: 500px;
 }
-.about-wrapper {
+.about__wrapper {
     display: flex;
     justify-content: space-between;
-    margin-top: 43px;
+    padding-top: 140px;
 }
-.about-column {
-    flex-direction: column;
+.about__text-block {
+    align-self: center;
+    flex-basis: 55%;
 }
 .about__title {
-    padding-top: 130px;
-    max-width: 700px;
     font-weight: bold;
-    font-size: 50px;
-    line-height: 80px;
-    margin-bottom: 60px;
+    font-size: 55px;
+    line-height: 145%;
+
+    margin-bottom: 45px;
 }
-.about__text {
-    max-width: 800px;
+.about__subtitle {
     font-weight: 500;
-    font-size: 40px;
-    line-height: 60px;
-    margin-bottom: 70px;
+    font-size: 45px;
+    line-height: 133%;
+
+    margin-bottom: 65px;
 }
 .about__btn {
     font-weight: 500;
-    font-size: 35px;
+    font-size: 40px;
     line-height: 49px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-transform: uppercase;
+
     max-width: 350px;
     width: 100%;
-    height: 70px;
-    text-transform: uppercase;
+    height: 80px;
+
     margin-bottom: 20px;
 }
-.about__img-wrapper {
-    vertical-align: middle;
+.about__pic-block {
+    align-self: center;
+    padding-top: 30px;
+    margin-bottom: 40px;
 }
-.about__img {
-    width: 544px;
+.about__pic {
+    width: 100%;
+    height: auto;
 }
+
+//-------------------------------------------------   ABOUT END   -------------------------------------------------
+
+//-------------------------------------------------   BENEFITS START   -------------------------------------------------
+
 .benefits {
-    height: 100vh;
+    min-height: 100vh;
     background-color: $blackSmokeColor;
 }
 .benefits__title {
-    padding-top: 80px;
-    text-align: center;
-    font-weight: bold;
-    font-size: 50px;
-    line-height: 67px;
     text-transform: uppercase;
+    font-weight: bold;
+    font-size: 55px;
+    line-height: 67px;
+    padding-top: 9%;
+    text-align: center;
+
+    margin-bottom: 40px;
+}
+.benefits__wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+.benefits__pic-block {
+    flex-basis: 35.7%;
+    margin-bottom: 40px;
+    align-self: center;
 }
 .benefits__pic {
+    width: 100%;
 }
-.benefits__column {
+.benefits__text-row {
+    flex-basis: 55%;
+    align-self: center;
 }
-.benefits__row {
+.benefits__text-column {
+    display: flex;
+    margin: 80px 0;
+}
+.benefits__large-circle {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    padding-right: 50px;
+    background-color: #fff;
+    border-radius: 50%;
+    align-self: center;
+}
+.benefits__small-circle {
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+
+    background-color: $blackColor;
 }
 .benefits__text {
-}
-.contacts {
-    width: 100%;
-    height: 100%;
-    color: $blackColor;
-}
-.container {
-}
-.contacts__title {
-}
-.socials {
-}
-.socials__column {
-}
-.socials__links {
-    color: $blackColor;
-}
-.form-wrapper {
-}
-.contacts-from {
-}
-.contacts-from__input-tel {
-}
-.contacts-from__input-name {
-}
-.contacts-form__btn {
-}
-.btn {
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 37px;
+
+    margin-left: 20px;
 }
 
+//-------------------------------------------------   BENEFITS END   -------------------------------------------------
+
+//-------------------------------------------------   CONTACTS START   -------------------------------------------------
+.contacts {
+    min-height: 100vh;
+    background: url(../../../assets/images/contacts-bg.png) right 70% no-repeat;
+}
+.contacts__title {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 55px;
+    line-height: 67px;
+    text-align: center;
+
+    padding-top: 100px;
+    margin-bottom: 40px;
+    color: $blackColor;
+}
+.contacts__wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+.contacts__social {
+}
+.contacts__social-item {
+    margin-bottom: 25px;
+}
+.contacts__social-link {
+    display: flex;
+}
+.contacts__social-pic {
+    max-width: 100px;
+    width: 100px;
+    opacity: 0.8;
+}
+.contacts__social-text {
+    align-self: center;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 37px;
+    text-decoration-line: underline;
+    color: $blackColor;
+    margin-left: 20px;
+}
+
+.contacts__form {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.contacts__form-input {
+    width: 450px;
+    height: 70px;
+    margin-bottom: 75px;
+    padding: 20px;
+    font-size: 22px;
+    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+}
+.contacts__form-input:hover {
+    transform: scale(1.03);
+    transition: 0.3s;
+}
+.contacts__form-input:target {
+    border-color: $redColor;
+    transition: 0.3s;
+}
+.contacts__form-input:focus {
+    border-color: $redColor;
+}
+.contacts__form-btn {
+    max-width: 300px;
+    width: 100%;
+    height: 70px;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 27px;
+    text-transform: uppercase;
+}
+
+//-------------------------------------------------   CONTACTS END   -------------------------------------------------
+
+//-------------------------------------------------   MEDIA BREACKPOINTS START   -------------------------------------------------
+@media (max-width: 1490.98px) {
+    .contacts {
+        background-position: 130%;
+    }
+}
 /* Landscape tablets and medium desktops */
 @media (max-width: 1199.98px) {
-    .about-wrapper {
-        padding: 0 30px;
-    }
-    .about__img {
-        max-width: 430px;
+    .about__wrapper {
+        padding-top: 100px;
     }
     .about__title {
-        padding-top: 130px;
-        max-width: 600px;
-        font-weight: bold;
-        font-size: 45px;
-        line-height: 80px;
-        margin-bottom: 60px;
+        margin-bottom: 40px;
     }
-    .about__text {
-        max-width: 600px;
-        font-weight: 500;
-        font-size: 35px;
-        line-height: 60px;
-        margin-bottom: 70px;
+    .about__subtitle {
+        margin-bottom: 40px;
+    }
+
+    .benefits__text-column {
+        margin: 60px 0;
+    }
+    .benefits__large-circle {
+        width: 40px;
+        height: 40px;
+        padding-right: 40px;
+    }
+    .benefits__small-circle {
+        width: 20px;
+        height: 20px;
+    }
+    .benefits__text {
+        font-weight: bold;
+        font-size: 25px;
+        line-height: 37px;
+
+        margin-left: 20px;
+    }
+    .contacts {
+        background-position: 180%;
     }
 }
+
 /* Portrait tablets and small desktops */
 @media (max-width: 991.98px) {
-    .about-wrapper {
-    }
     .about__title {
-        padding-top: 100px;
-        max-width: 470px;
+        padding-top: 50px;
+    }
+    .benefits__title {
+        font-size: 45px;
+    }
+    .benefits__text-column {
+        margin: 40px 0;
+    }
+    .benefits__large-circle {
+        width: 40px;
+        height: 40px;
+        padding-right: 40px;
+    }
+    .benefits__small-circle {
+        width: 20px;
+        height: 20px;
+    }
+    .benefits__text {
         font-weight: bold;
-        font-size: 40px;
-        line-height: 80px;
-        margin-bottom: 60px;
+        font-size: 22px;
+        line-height: 37px;
+
+        margin-left: 20px;
     }
-    .about__text {
-        max-width: 470px;
-        font-weight: 500;
-        font-size: 30px;
-        line-height: 60px;
-        margin-bottom: 70px;
+    .contacts {
+        background-position: center;
     }
-}
-@media (max-width: 849.98px) {
-    .about-wrapper {
-        padding: 0 20px;
-        background-size: 480px;
+    .contacts__wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
-    .about__title {
-        padding-top: 100px;
-        max-width: 430px;
-        font-weight: bold;
-        font-size: 40px;
-        line-height: 80px;
-        margin-bottom: 50px;
+    .contacts__social {
+        display: flex;
+        flex-direction: row;
+        align-self: center;
+        flex-basis: 100%;
     }
-    .about__text {
-        max-width: 430px;
-        font-weight: 500;
-        font-size: 28px;
-        line-height: 60px;
-        margin-bottom: 60px;
+    .contacts__social-item {
+        display: flex;
+        flex-direction: row;
+        align-self: center;
+        margin: 10px 20px;
     }
-    .about__btn {
-        max-width: 260px;
+    .contacts__social-text {
+        display: none;
     }
 }
 
 /* Landscape phones and portrait tablets */
 @media (max-width: 767.98px) {
+    .about {
+        background-color: $blackSmokeColor;
+        color: $mainColor;
+    }
+    .about__wrapper {
+        flex-wrap: wrap;
+        padding-top: 37%;
+    }
+    .about__text-block {
+        flex-basis: 100%;
+        text-align: center;
+    }
+    .about__title {
+        font-size: 42px;
+    }
+    .about__subtitle {
+        font-size: 37px;
+    }
+    .about__btn {
+        max-width: 280px;
+        font-size: 35px;
+    }
+    .about__pic {
+        display: none;
+    }
+
+    .benefits {
+        background-color: $mainColor;
+        color: $blackColor;
+    }
+    .benefits__wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+    .benefits__title {
+        font-size: 45px;
+    }
+    .benefits__pic {
+        max-height: 200px;
+    }
+    .benefits__text-column {
+        margin: 20px 0;
+        flex-direction: column;
+    }
+    .benefits__large-circle {
+        width: 30px;
+        height: 30px;
+        padding-right: 30px;
+        background-color: $blackColor;
+    }
+    .benefits__small-circle {
+        width: 15px;
+        height: 15px;
+        background-color: $mainColor;
+    }
+    .benefits__text {
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 37px;
+
+        margin-left: 10px;
+    }
+    .contacts {
+        background: none;
+        background-color: $blackSmokeColor;
+    }
+    .contacts__title {
+        color: $mainColor;
+    }
+    .contacts__social {
+        flex-wrap: wrap;
+        justify-content: center;
+        align-content: center;
+    }
+    .contacts__social-item {
+        justify-content: center;
+    }
+
+    .contacts__form-input {
+        max-width: 450px;
+        width: 100%;
+        height: 70px;
+        margin-bottom: 75px;
+        padding: 20px;
+        font-size: 22px;
+        box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 25px;
+    }
 }
 
 /* Portrait phones and smaller */
 @media (max-width: 480.98px) {
+    .about__wrapper {
+        padding-top: 52%;
+    }
+    .contacts__social-item {
+        margin: 5px 10px;
+    }
+    .contacts__form-btn {
+        max-width: 280px;
+        font-size: 22px;
+    }
 }
-
+@media (max-width: 380.98px) {
+    .about__wrapper {
+        padding-top: 32%;
+    }
+    .contacts__form-btn {
+        max-width: 220px;
+        font-size: 22px;
+    }
+}
 /* Iphone 5 */
 @media (max-width: 320.98px) {
 }

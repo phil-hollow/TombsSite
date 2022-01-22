@@ -91,6 +91,7 @@ $redColor: #c65f5f;
 $btnHoverColor: #ad4f4f;
 /*--------------------*/
 body {
+    height: 100vh;
     font-family: "Montserrat";
     color: $mainColor;
 }
@@ -101,9 +102,8 @@ a {
 
 .container {
     max-width: 1320px;
-    height: inherit;
     margin: 0 auto;
-    padding: 0 15px;
+    padding: 0 30px;
 }
 .title {
     font-weight: bold;

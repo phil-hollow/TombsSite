@@ -25,6 +25,7 @@ $redColor: #c65f5f;
     width: 100%;
     height: 100%;
     background-color: $blackSmokeColor;
+    opacity: 0.95;
 }
 
 .flex-wrapper {
@@ -218,9 +219,13 @@ $redColor: #c65f5f;
     }
 }
 @media (max-width: 991.98px) {
+    .header::before {
+        background-color: 0;
+    }
     .nav__body {
         display: none;
     }
+
     .header__wrapper {
         position: fixed;
         top: 0;
