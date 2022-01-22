@@ -100,6 +100,7 @@ $redColor: #c65f5f;
     background-size: 60px;
     background-color: $blackSmokeColor;
     border-radius: 25px;
+    cursor: pointer;
 }
 
 .products-items {
@@ -111,7 +112,15 @@ $redColor: #c65f5f;
     grid-row-gap: 20px;
     justify-content: center;
 }
-
+.products-items2 {
+    max-width: 100%;
+    display: grid;
+    margin: 100px 0;
+    grid-template-rows: repeat(auto, 1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    justify-content: center;
+}
 .products-item {
     width: 300px;
     height: 420px;
@@ -125,7 +134,7 @@ $redColor: #c65f5f;
 }
 // --- Admin-panel element start ---
 .products-itmes__admin-wrapper {
-    display: none;
+    display: flex;
     margin-left: auto;
     height: 0;
 }
@@ -133,6 +142,12 @@ $redColor: #c65f5f;
     width: 30px;
     height: 30px;
     margin: 7px 10px 0 0;
+    cursor: pointer;
+    transition-duration: 0.8s;
+}
+.products-items__icon:hover{
+    transform: scale(1.2);
+    
 }
 // --- Admin-panel element end ---
 .products-item__wrapper-pic {
@@ -153,6 +168,16 @@ $redColor: #c65f5f;
     font-size: 22px;
     line-height: 29px;
     margin-bottom: 15px;
+}
+.products-items__notFound___text{
+    font-size: 45px;
+    font-weight: bold;
+    line-height: 29px;
+    margin-bottom: 15px;
+    color:$redColor;
+}
+.products-items__notFound{
+    margin: auto;
 }
 .products-item__btn {
     width: 150px;

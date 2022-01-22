@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminSessionService } from '../services/admin-session.service';
+import { OrderService } from '../services/order.service';
 
 @Component({
     selector: 'app-navbar',
@@ -6,8 +8,9 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-
-    constructor() { }
+    constructor(public orderService:OrderService, public adminSessionService:AdminSessionService) { 
+      
+    }
 
     ngOnInit(): void {
     }

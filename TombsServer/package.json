@@ -8,7 +8,7 @@
     "build": "tsc --project ./ ",
     "start": "node ./dist/.",
     "serve": "npm run build && npm run copyData && npm run start ",
-    "copyData":"cp -R \"src/Data\" \"dist/Data\" "
+    "copyData": "cp -R \"src/Data\" \"dist/Data\" "
   },
   "keywords": [],
   "author": "",

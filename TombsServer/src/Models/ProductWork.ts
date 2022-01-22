@@ -1,11 +1,11 @@
-export class Tomb {
-    id: number = 0
+
+export class ProductWork {
+    id: number 
     name: string | undefined
     description: string | undefined
-    material: string | undefined
     price: number | undefined
     picture: string | undefined
-    private constructor() {
+    private constructor(){
         this.id = Date.now();
     }
 }
