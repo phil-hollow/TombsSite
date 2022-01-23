@@ -90,6 +90,9 @@ $blackSmokeColor: #343434;
 $redColor: #c65f5f;
 $btnHoverColor: #ad4f4f;
 /*--------------------*/
+html {
+    scroll-behavior: smooth;
+}
 body {
     height: 100vh;
     font-family: "Montserrat";
