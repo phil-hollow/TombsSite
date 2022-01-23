@@ -9,33 +9,35 @@
             <button class="products__add-product btn">новый продукт</button>
             <!--- Admin-panel element end --->
 
-            <button class="btn products-nav__btn">Сначала дешёвые</button>
+            <button id="sorting" (click)="SortingChanged()" class="btn products-nav__btn">Сначала дешёвые</button>
 
             <div class="products-nav__price">
 
                 <div class="products-nav__price-text">Цена от:</div>
-                <input type="text" class="products-nav__input">
+                <input id="priceFrom" (change)="PriceFromChanged()" type="text" class="products-nav__input">
 
                 <div class="products-nav__price-text">до:</div>
-                <input type="text" class="products-nav__input">
+                <input id="priceTo" (change)="PriceToChanged()" type="text" class="products-nav__input">
             </div>
 
             <div class="products-nav__search">
 
-                <input type="text" class="products-nav__search-input">
-                <input class="products-nav__search-btn2" type="submit" value="">
+                <input id="searchInput" type="text" class="products-nav__search-input">
+                <input (click)="SearchProducts()" class="products-nav__search-btn2" type="submit"  value="">
             </div>
         </div>
 
 
-        <div class="products-items">
-
+        <div *ngIf="initialProducts.length !== 0"  [ngClass]="{'products-items':currentProducts.length > 0,'products-items2':currentProducts.length === 0}">
+            <div *ngIf="currentProducts.length ===0" class="products-items__notFound">
+                <p class="products-items__notFound___text">По вашему запросу ничего не найдено</p>
+            </div>
             <div class="products-item" *ngFor="let product of currentProducts">
 
                 <!--- Admin-panel element start --->
-                <div class="products-itmes__admin-wrapper">
-                    <img src="../../../assets/images/admin-edit.svg" class="products-items__icon">
-                    <img src="../../../assets/images/admin-close.svg" class="products-items__icon">
+                <div *ngIf="adminSessionService.isAuthorizated" class="products-itmes__admin-wrapper">
+                    <img  src="../../../assets/images/admin-edit.svg" class="products-items__icon">
+                    <img (click)="AdminDeleteProduct(product.id)" src="../../../assets/images/admin-close.svg" class="products-items__icon">
                 </div>
                 <!--- Admin-panel element end --->
 
