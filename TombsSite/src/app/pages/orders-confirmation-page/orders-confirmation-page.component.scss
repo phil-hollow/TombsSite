@@ -15,32 +15,34 @@ $blackCircleColor: #564f4f;
     background-size: fixed;
 }
 .confirmation-page__wrapper {
-    padding-top: 90px;
+    padding-top: 100px;
+
     display: flex;
-    flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-between;
 }
 .confirmation-page__products {
-    flex-basis: 50%;
+    max-width: 650px;
+    min-width: 485px;
+    width: 100%;
     margin-bottom: 60px;
 }
 .confirmation-page__products-title {
-    position: relative;
-    top: 0;
-    left: 10%;
     font-weight: bold;
     font-size: 50px;
     line-height: 61px;
     text-transform: uppercase;
+    padding-left: 10%;
     margin-bottom: 50px;
     color: $mainColor;
+    text-shadow: 2px 2px 2px #000000;
 }
 .confirmation-page__products-block {
     max-height: 500px;
     margin-bottom: 40px;
     padding-right: 10px;
     overflow-y: auto;
+    overflow-x: hidden;
     scrollbar-width: 10px;
     scrollbar-color: $redColor white;
 }
@@ -53,6 +55,7 @@ $blackCircleColor: #564f4f;
 }
 .products-item {
     display: flex;
+    min-width: 468px;
     width: 100%;
     min-height: 130px;
     margin-bottom: 20px;
@@ -95,7 +98,7 @@ $blackCircleColor: #564f4f;
     font-size: 30px;
     line-height: 37px;
     align-self: center;
-    margin: 0 10px;
+    margin: 0 15px;
 }
 .confirmation-page__products-price {
     display: flex;
@@ -115,7 +118,9 @@ $blackCircleColor: #564f4f;
     color: $mainColor;
 }
 .confirmation-page__contact {
-    flex-basis: 40%;
+    max-width: 400px;
+    width: 100%;
+    margin-left: 20px;
 }
 .confirmation-page__contact-title {
     font-weight: bold;
@@ -131,7 +136,8 @@ $blackCircleColor: #564f4f;
     align-items: center;
 }
 .confirmation-page__contact-input {
-    width: 400px;
+    max-width: 400px;
+    width: 100%;
     height: 57px;
     margin-bottom: 40px;
     padding: 20px;
@@ -153,7 +159,8 @@ $blackCircleColor: #564f4f;
     border-color: $redColor;
 }
 .confirmation-page__contact-textarea {
-    width: 400px;
+    max-width: 400px;
+    width: 100%;
     height: 160px;
     padding: 20px;
     margin-bottom: 40px;
@@ -181,7 +188,147 @@ $blackCircleColor: #564f4f;
     font-size: 22px;
     line-height: 27px;
     text-transform: uppercase;
+    margin-bottom: 40px;
     border: 1px solid black;
     background-color: $mainColor;
     color: $redColor;
+}
+
+@media (max-width: 1600px) {
+    .confirmation-page__products-title {
+        padding-left: 0;
+        padding-right: 10%;
+        text-align: right;
+    }
+}
+
+/* Portrait tablets and small desktops */
+@media (max-width: 991.98px) {
+    .confirmation-page {
+        background: none;
+        background-color: $blackSmokeColor;
+    }
+    .confirmation-page__wrapper {
+        padding-top: 60px;
+        flex-wrap: wrap;
+    }
+    .confirmation-page__products {
+        max-width: 100%;
+        min-width: 485px;
+        width: 100%;
+        margin-bottom: 60px;
+    }
+    .confirmation-page__products-title {
+        padding-right: 0;
+        text-align: center;
+    }
+    .confirmation-page__products-block {
+        overflow-y: auto;
+    }
+    .confirmation-page__contact {
+        margin: 0 auto;
+    }
+    .confirmation-page__contact-title {
+        color: $mainColor;
+        text-shadow: 2px 2px 2px #000000;
+    }
+}
+
+/* Landscape phones and portrait tablets */
+@media (max-width: 767.98px) {
+    .confirmation-page__wrapper {
+        padding-top: 30px;
+    }
+}
+
+@media (max-width: 539.98px) {
+    .confirmation-page__products-block {
+        max-height: 100%;
+        overflow: hidden;
+        padding-right: 0;
+        scrollbar-width: 0;
+    }
+    .confirmation-page__products-block::-webkit-scrollbar {
+        width: 0;
+    }
+    .confirmation-page__wrapper {
+        padding-top: 20px;
+    }
+    .products-item {
+        min-width: 200px;
+        flex-direction: column;
+        align-items: center;
+        border: 2px solid $redColor;
+    }
+    .products-item__title {
+        min-width: 100%;
+        text-align: center;
+        padding-bottom: 10px;
+    }
+    .products-item__pic {
+        margin: 15px;
+        width: 100px;
+        height: 100px;
+    }
+    .products-item__text-wrapper {
+        padding-top: 0;
+        margin: auto 10px;
+        max-height: 100%;
+    }
+    .products-item__description {
+        text-align: center;
+        max-height: 100%;
+    }
+    .products-item__price {
+        font-weight: bold;
+        font-size: 30px;
+        line-height: 37px;
+        align-self: center;
+        margin: 10px 0 15px 0;
+    }
+    .confirmation-page__products {
+        min-width: 200px;
+    }
+    .confirmation-page__products-price {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+/* Portrait phones and smaller */
+@media (max-width: 480.98px) {
+    .confirmation-page__products-title {
+        font-size: 45px;
+    }
+    .confirmation-page__contact-title {
+        font-size: 45px;
+    }
+    .confirmation-page__products-price {
+        padding: 12px 10px;
+        font-size: 25px;
+        line-height: 43px;
+
+        max-width: 260px;
+    }
+    .confirmation-page__contact-btn {
+        width: 250px;
+        font-size: 22px;
+        padding: 0 5px;
+    }
+}
+
+/* Iphone 5 */
+@media (max-width: 320.98px) {
+    .confirmation-page__products-price {
+        padding: 12px 10px;
+        font-size: 20px;
+        line-height: 43px;
+
+        max-width: 230px;
+    }
+    .confirmation-page__contact-btn {
+        width: 200px;
+        font-size: 20px;
+        padding: 0 10px;
+    }
 }
