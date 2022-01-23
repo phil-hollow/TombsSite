@@ -220,7 +220,7 @@ $redColor: #c65f5f;
 }
 @media (max-width: 991.98px) {
     .header::before {
-        background-color: 0;
+        opacity: 0.3;
     }
     .nav__body {
         display: none;

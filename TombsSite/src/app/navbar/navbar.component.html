@@ -48,7 +48,7 @@
                         </a>
                     </div>
                     <div class="nav__item">
-                        <a [routerLink]="['/']" class="nav__link">
+                        <a (click)="GoToContacts()" class="nav__link">
                             Контакты
                         </a>
                     </div>
@@ -71,7 +71,7 @@
                             </svg>
                             <div *ngIf="orderService.orderSum !=0">
                                 <div class="order-cart__price">{{orderService.orderSum}}<br />грн.</div>
-                                
+
                             </div>
                         </a>
                     </div>

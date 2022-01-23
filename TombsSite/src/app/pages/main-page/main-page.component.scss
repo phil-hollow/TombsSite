@@ -144,8 +144,6 @@ $btnHoverColor: #ad4f4f;
     display: flex;
     justify-content: space-between;
 }
-.contacts__social {
-}
 .contacts__social-item {
     margin-bottom: 25px;
 }
@@ -201,6 +199,7 @@ $btnHoverColor: #ad4f4f;
     font-size: 24px;
     line-height: 27px;
     text-transform: uppercase;
+    margin-bottom: 40px;
 }
 
 //-------------------------------------------------   CONTACTS END   -------------------------------------------------
@@ -395,6 +394,9 @@ $btnHoverColor: #ad4f4f;
 @media (max-width: 480.98px) {
     .about__wrapper {
         padding-top: 52%;
+    }
+    .contacts__title {
+        font-size: 45px;
     }
     .contacts__social-item {
         margin: 5px 10px;

@@ -7,16 +7,16 @@
                 <div class="confirmation-page__products-block">
 
                     <div class="products-item" *ngFor="let product of orderService.order.tombs">
-                            <img src="{{ServerImagesUrl +'/images/'+product.picture}}" alt=""
-                                class="products-item__pic">
-                            <div class="products-item__text-wrapper">
-                                <div class="products-item__title">{{product.name}}</div>
-                                <div class="products-item__description">{{product.description}}</div>
-                            </div>
-                            <div class="products-item__price">{{product.price}}грн</div>
-                            <div class="products-itmes__admin-wrapper">
-                                <img (click)="orderService.DeleteTombById(product.id)" src="../../../assets/images/admin-close.svg" class="products-items__icon">
-                            </div>
+                        <img src="{{ServerImagesUrl +'/images/'+product.picture}}" alt="" class="products-item__pic">
+                        <div class="products-item__text-wrapper">
+                            <div class="products-item__title">{{product.name}}</div>
+                            <div class="products-item__description">{{product.description}}</div>
+                        </div>
+                        <div class="products-item__price">{{product.price}}грн</div>
+                        <div class="products-itmes__admin-wrapper">
+                            <img (click)="orderService.DeleteTombById(product.id)"
+                                src="../../../assets/images/admin-close.svg" class="products-items__icon">
+                        </div>
                     </div>
 
                 </div>
@@ -29,12 +29,14 @@
 
                 <h2 class="confirmation-page__contact-title">оформить заказ</h2>
 
-            
-                    <input (change)="NameChanged($event)" type="text" class="confirmation-page__contact-input" placeholder="ФИО">
-                    <input (change)="PhoneChanged($event)" type="text" class="confirmation-page__contact-input" placeholder="Телефон">
-                    <textarea (change)="CommentChanged($event)" name="" class="confirmation-page__contact-textarea" placeholder="Комментарий к заказу"></textarea>
-                    <button (click)="SendOrder()" class="confirmation-page__contact-btn btn">оформить заказ</button>
-               
+
+                <input (change)="NameChanged($event)" type="text" class="confirmation-page__contact-input"
+                    placeholder="ФИО">
+                <input (change)="PhoneChanged($event)" type="text" class="confirmation-page__contact-input"
+                    placeholder="Телефон">
+                <textarea (change)="CommentChanged($event)" name="" class="confirmation-page__contact-textarea"
+                    placeholder="Комментарий к заказу"></textarea>
+                <button (click)="SendOrder()" class="confirmation-page__contact-btn btn">оформить заказ</button>
             </div>
         </div>
     </div>

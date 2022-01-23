@@ -63,9 +63,8 @@ $blackCircleColor: #564f4f;
     border: 1px solid black;
     cursor: pointer;
 }
-.products-item:hover{
+.products-item:hover {
     background-color: #cccccc;
-    
 }
 .products-item__pic {
     margin: auto 15px;
@@ -187,6 +186,8 @@ $blackCircleColor: #564f4f;
     border-color: $redColor;
 }
 .confirmation-page__contact-btn {
+    display: block;
+    margin: 0 auto;
     width: 288.41px;
     height: 67px;
     font-weight: bold;
@@ -214,9 +215,8 @@ $blackCircleColor: #564f4f;
     cursor: pointer;
     transition-duration: 0.8s;
 }
-.products-items__icon:hover{
+.products-items__icon:hover {
     transform: scale(1.2);
-    
 }
 // --- Admin-panel element end ---
 
@@ -324,10 +324,10 @@ $blackCircleColor: #564f4f;
 /* Portrait phones and smaller */
 @media (max-width: 480.98px) {
     .confirmation-page__products-title {
-        font-size: 45px;
+        font-size: 40px;
     }
     .confirmation-page__contact-title {
-        font-size: 45px;
+        font-size: 40px;
     }
     .confirmation-page__products-price {
         padding: 12px 10px;
