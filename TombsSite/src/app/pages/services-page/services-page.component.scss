@@ -1,0 +1,213 @@
+//---colors---
+$mainColor: #ffffff;
+$blackColor: #000000;
+$blackSmokeColor: #343434;
+$redColor: #c65f5f;
+$btnHoverColor: #ad4f4f;
+
+//----------------------------
+
+// --- Admin-panel element start ---
+.services-admin-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background-color: rgb(235, 235, 235);
+}
+.services-admin__input {
+    font-size: 18px;
+    width: 50%;
+    min-width: 20%;
+    min-height: 60px;
+    margin-bottom: 40px;
+    padding: 20px;
+    border-radius: 25px;
+    &:nth-child(2) {
+        min-height: 160px;
+    }
+}
+.services-admin__btn-wrapper {
+    min-width: 190px;
+    width: 35%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.services-admin__accept {
+    text-transform: uppercase;
+    font-size: 24px;
+    max-width: 200px;
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+.services-admin__decline {
+    text-transform: uppercase;
+    font-size: 24px;
+    max-width: 200px;
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    margin: 0 auto;
+}
+// --- Admin-panel element end ---
+.services {
+    position: relative;
+    padding-top: 80px;
+    color: $blackColor;
+}
+
+.services__title {
+    font-size: 55px;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    text-align: center;
+    padding-top: 100px;
+    margin-bottom: 40px;
+}
+// --- Admin-panel element start ---
+.services__add-product {
+    display: none;
+    text-transform: uppercase;
+    font-size: 20px;
+    text-align: center;
+    margin-right: 55px;
+    border: 3px solid black;
+    height: 60px;
+    max-width: 230px;
+    width: 100%;
+    min-width: 160px;
+    margin-bottom: 20px;
+}
+// --- Admin-panel element end ---
+.services__wrapper {
+    display: flex;
+    flex-direction: column;
+}
+.services__item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 2px solid $redColor;
+    border-radius: 10px;
+    background-color: rgb(246, 245, 245);
+    &:hover {
+        transform: scale(1.01);
+        transition: 0.5s;
+    }
+}
+.services__pic {
+    max-width: 100px;
+    width: 100%;
+    margin-right: 20px;
+}
+.services__product-name {
+    font-size: 26px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+.services__text {
+    font-size: 18px;
+    flex-basis: 500px;
+    width: 100%;
+}
+.price__block {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.services__price {
+    font-weight: bold;
+    font-size: 22px;
+    margin-right: 15px;
+    margin-left: 20px;
+}
+.services__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 22px;
+    text-transform: uppercase;
+
+    max-width: 150px;
+    width: 100%;
+    height: 50px;
+    padding: 5px;
+}
+/* Large desktops and laptops */
+@media (max-width: 1200px) {
+}
+/* Landscape tablets and medium desktops */
+@media (max-width: 1199.98px) {
+}
+/* Portrait tablets and small desktops */
+@media (max-width: 991.98px) {
+    // --- Admin-panel element start ---
+    .services-admin__input {
+        width: 70%;
+    }
+    // --- Admin-panel element end ---
+}
+/* Landscape phones and portrait tablets */
+@media (max-width: 767.98px) {
+    // --- Admin-panel element start ---
+    .services-admin-form {
+        top: 27%;
+    }
+    // --- Admin-panel element end ---
+    .services__item {
+        flex-direction: column;
+    }
+    .services__pic {
+        margin-bottom: 10px;
+    }
+    .services__product-name {
+        text-align: center;
+        margin-bottom: 5px;
+    }
+    .services__text {
+        font-size: 18px;
+        max-width: 500px;
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    .price__block {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: auto;
+    }
+    .services__price {
+        font-weight: bold;
+        font-size: 22px;
+        margin-bottom: 15px;
+    }
+}
+
+/* Portrait phones and smaller */
+@media (max-width: 480.98px) {
+    // --- Admin-panel element start ---
+    .services-admin__input {
+        width: 80%;
+    }
+    // --- Admin-panel element end ---
+}
+
+/* Iphone 5 */
+@media (max-width: 320.98px) {
+}

@@ -1,3 +1,15 @@
+<!--- Admin-panel element start --->
+<form action="" class="products-admin-form">
+    <input type="text" placeholder="Название товара" class="products-admin__input">
+    <input type="text" placeholder="Материал" class="products-admin__input">
+    <textarea type="text" placeholder="Описание товара" class="products-admin__input"></textarea>
+    <input type="text" placeholder="Цена" class="products-admin__input">
+    <div class="products-admin__btn-wrapper">
+        <button type="submit" class="products-admin__accept btn">ок</button>
+        <button type="submit" class="products-admin__decline btn">отменить</button>
+    </div>
+</form>
+<!--- Admin-panel element end --->
 <div class="products">
     <div class="container">
         <div class="title products__title">каталог товаров</div>
@@ -23,12 +35,13 @@
             <div class="products-nav__search">
 
                 <input id="searchInput" type="text" class="products-nav__search-input">
-                <input (click)="SearchProducts()" class="products-nav__search-btn2" type="submit"  value="">
+                <input (click)="SearchProducts()" class="products-nav__search-btn2" type="submit" value="">
             </div>
         </div>
 
 
-        <div *ngIf="initialProducts.length !== 0"  [ngClass]="{'products-items':currentProducts.length > 0,'products-items2':currentProducts.length === 0}">
+        <div *ngIf="initialProducts.length !== 0"
+            [ngClass]="{'products-items':currentProducts.length > 0,'products-items2':currentProducts.length === 0}">
             <div *ngIf="currentProducts.length ===0" class="products-items__notFound">
                 <p class="products-items__notFound___text">По вашему запросу ничего не найдено</p>
             </div>
@@ -36,8 +49,9 @@
 
                 <!--- Admin-panel element start --->
                 <div *ngIf="adminSessionService.isAuthorizated" class="products-itmes__admin-wrapper">
-                    <img  src="../../../assets/images/admin-edit.svg" class="products-items__icon">
-                    <img (click)="AdminDeleteProduct(product.id)" src="../../../assets/images/admin-close.svg" class="products-items__icon">
+                    <img src="../../../assets/images/admin-edit.svg" class="products-items__icon">
+                    <img (click)="AdminDeleteProduct(product.id)" src="../../../assets/images/admin-close.svg"
+                        class="products-items__icon">
                 </div>
                 <!--- Admin-panel element end --->
 

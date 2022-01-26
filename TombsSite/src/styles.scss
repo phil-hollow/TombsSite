@@ -119,6 +119,7 @@ a {
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
     color: $mainColor;
     border-radius: 25px;
+    cursor: pointer;
 }
 .btn:hover {
     background-color: $btnHoverColor;
