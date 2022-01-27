@@ -39,28 +39,46 @@
             </div>
         </div>
 
-
-        <div *ngIf="initialProducts.length !== 0"
-            [ngClass]="{'products-items':currentProducts.length > 0,'products-items2':currentProducts.length === 0}">
-            <div *ngIf="currentProducts.length ===0" class="products-items__notFound">
-                <p class="products-items__notFound___text">По вашему запросу ничего не найдено</p>
+        <div class="products__wrapper">
+            <div class="products-filters">
+                <div class="products-filters__title">фильтры</div>
+                <div class="prducts-filters__item">
+                    <div class="prducts-filters__item-name">Памятники гранитные</div>
+                    <div class="prducts-filters__item-subname">Крутой гранит</div>
+                    <div class="prducts-filters__item-subname">Не крутой гранит</div>
+                </div>
+                <div class="prducts-filters__item">Lorem, ipsum.</div>
+                <div class="prducts-filters__item">Lorem, ipsum.</div>
+                <div class="prducts-filters__item">Lorem, ipsum.</div>
+                <div class="prducts-filters__item">Lorem, ipsum.</div>
+                <div class="prducts-filters__item">Lorem, ipsum.</div>
+                <div class="prducts-filters__item">Lorem, ipsum.</div>
+                <div class="prducts-filters__item">Lorem, ipsum.</div>
+                <div class="prducts-filters__item">Lorem, ipsum.</div>
+                <div class="prducts-filters__item">Lorem, ipsum.</div>
             </div>
-            <div class="products-item" *ngFor="let product of currentProducts">
-
-                <!--- Admin-panel element start --->
-                <div *ngIf="adminSessionService.isAuthorizated" class="products-itmes__admin-wrapper">
-                    <img src="../../../assets/images/admin-edit.svg" class="products-items__icon">
-                    <img (click)="AdminDeleteProduct(product.id)" src="../../../assets/images/admin-close.svg"
-                        class="products-items__icon">
+            <div *ngIf="initialProducts.length !== 0"
+                [ngClass]="{'products-items':currentProducts.length > 0,'products-items2':currentProducts.length === 0}">
+                <div *ngIf="currentProducts.length ===0" class="products-items__notFound">
+                    <p class="products-items__notFound___text">По вашему запросу ничего не найдено</p>
                 </div>
-                <!--- Admin-panel element end --->
+                <div class="products-item" *ngFor="let product of currentProducts">
 
-                <div class="products-item__wrapper-pic">
-                    <img src="{{ServerImagesUrl +'/images/'+product.picture}}" class="products-item__pic">
+                    <!--- Admin-panel element start --->
+                    <div *ngIf="adminSessionService.isAuthorizated" class="products-itmes__admin-wrapper">
+                        <img src="../../../assets/images/admin-edit.svg" class="products-items__icon">
+                        <img (click)="AdminDeleteProduct(product.id)" src="../../../assets/images/admin-close.svg"
+                            class="products-items__icon">
+                    </div>
+                    <!--- Admin-panel element end --->
+
+                    <div class="products-item__wrapper-pic">
+                        <img src="{{ServerImagesUrl +'/images/'+product.picture}}" class="products-item__pic">
+                    </div>
+                    <div class="products-item__title">{{product.name}}</div>
+                    <div class="products-item__title">{{product.price}} грн</div>
+                    <button class="btn products-item__btn" (click)="CurrentTomb(product.id)">Подробнее</button>
                 </div>
-                <div class="products-item__title">{{product.name}}</div>
-                <div class="products-item__title">{{product.price}} грн</div>
-                <button class="btn products-item__btn" (click)="CurrentTomb(product.id)">Подробнее</button>
             </div>
         </div>
 
