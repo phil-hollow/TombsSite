@@ -1,16 +1,20 @@
 <!--- Admin-panel element start --->
-<form action="" class="products-admin-form">
-    <input type="text" placeholder="Название товара" class="products-admin__input">
-    <input type="text" placeholder="Материал" class="products-admin__input">
-    <textarea type="text" placeholder="Описание товара" class="products-admin__input"></textarea>
-    <input type="text" placeholder="Цена" class="products-admin__input">
-    <div class="products-admin__btn-wrapper">
-        <button type="submit" class="products-admin__accept btn">ок</button>
-        <button type="submit" class="products-admin__decline btn">отменить</button>
+<div *ngIf="newItemMode || editMode" class="products-admin-form">
+    <div *ngIf="showErrorAdminMode">
+        <p class="products-admin__error___text">Все поля должны быть заполнены</p>
     </div>
-</form>
+    <input  type="text" placeholder="Название товара" class="products-admin__input" [(ngModel)]="editedProduct.name">
+    <input type="file" name="file" >
+    <input id="material" type="text" placeholder="Материал" class="products-admin__input" [(ngModel)]="editedProduct.material">
+    <textarea id="description" type="text" placeholder="Описание товара" class="products-admin__input" [(ngModel)]="editedProduct.description"></textarea>
+    <input id="price" type="number" placeholder="Цена" class="products-admin__input" min="0" step="1" max="99999999" (keydown)="$event.keyCode == 188 ||$event.keyCode == 189 || $event.keyCode == 187 || $event.keyCode == 69 || $event.keyCode ==190 ? false : true" [(ngModel)]="editedProduct.price">
+    <div class="products-admin__btn-wrapper">
+        <button (click)="SaveItem()" class="products-admin__accept btn">ок</button>
+        <button (click)="CancelAdminMode()"  class="products-admin__decline btn">отменить</button>
+    </div>
+</div>
 <!--- Admin-panel element end --->
-<div class="products">
+<div *ngIf="!newItemMode && !editMode" class="products">
     <div class="container">
         <div class="title products__title">каталог товаров</div>
 
@@ -18,7 +22,7 @@
         <div class="products-nav">
 
             <!--- Admin-panel element start --->
-            <button class="products__add-product btn">новый продукт</button>
+            <button (click)="GoToNewItemMode()" *ngIf="adminSessionService.isAuthorizated" class="products__add-product btn-without-hover">новый продукт</button>
             <!--- Admin-panel element end --->
 
             <button id="sorting" (click)="SortingChanged()" class="btn products-nav__btn">Сначала дешёвые</button>
@@ -49,7 +53,7 @@
 
                 <!--- Admin-panel element start --->
                 <div *ngIf="adminSessionService.isAuthorizated" class="products-itmes__admin-wrapper">
-                    <img src="../../../assets/images/admin-edit.svg" class="products-items__icon">
+                    <img (click)="GoToEditMode(product)" src="../../../assets/images/admin-edit.svg" class="products-items__icon">
                     <img (click)="AdminDeleteProduct(product.id)" src="../../../assets/images/admin-close.svg"
                         class="products-items__icon">
                 </div>

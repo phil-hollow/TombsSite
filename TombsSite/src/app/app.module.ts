@@ -12,6 +12,7 @@ import { ServicesPageComponent } from './pages/services-page/services-page.compo
 import { NavbarComponent } from './navbar/navbar.component';
 import { AdminLoginComponent } from './pages/admin-login/admin-login.component';
 import { OrderService } from './services/order.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -28,7 +29,8 @@ import { OrderService } from './services/order.service';
     imports: [
         BrowserModule,
         AppRoutingModule,
-        HttpClientModule
+        HttpClientModule,
+        FormsModule
     ],
     providers: [OrderService],
     bootstrap: [AppComponent]

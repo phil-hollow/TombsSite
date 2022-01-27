@@ -121,8 +121,20 @@ a {
     border-radius: 25px;
     cursor: pointer;
 }
+.btn-without-hover{
+    background-color: $redColor;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+    color: $mainColor;
+    border-radius: 25px;
+    cursor: pointer;
+}
 .btn:hover {
     background-color: $btnHoverColor;
     transition: 0.7s;
     transform: scale(1.05);
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
 }

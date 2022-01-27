@@ -13,7 +13,6 @@ $redColor: #c65f5f;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    display: none;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -79,7 +78,6 @@ $redColor: #c65f5f;
 }
 // --- Admin-panel element start ---
 .products__add-product {
-    display: none;
     text-transform: uppercase;
     font-size: 20px;
     text-align: center;
@@ -88,6 +86,14 @@ $redColor: #c65f5f;
     height: 60px;
     width: 230px;
     min-width: 160px;
+    margin-bottom: 15px;
+}
+.products-admin__error___text {
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 29px;
+    margin-bottom: 15px;
+    color: $redColor;
 }
 // --- Admin-panel element end ---
 .products-nav__btn {

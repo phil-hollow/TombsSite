@@ -33,17 +33,17 @@
                 </label>
                 <div class="nav__body">
                     <div class="nav__item">
-                        <a [routerLink]="['/']" class="nav__link">
+                        <a (click)="GoToMainPage()" class="nav__link">
                             Главная
                         </a>
                     </div>
                     <div class="nav__item">
-                        <a [routerLink]="['/products',1]" class="nav__link">
+                        <a [routerLink]="['/products',0]" class="nav__link">
                             Каталог
                         </a>
                     </div>
                     <div class="nav__item">
-                        <a [routerLink]="['services']" class="nav__link">
+                        <a [routerLink]="['/services']" class="nav__link">
                             Услуги
                         </a>
                     </div>

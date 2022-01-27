@@ -25,21 +25,27 @@ export class ProductsPageComponent implements OnInit {
     pages: number = 1;
     currentPageId: any = 1;
     subscribes = new Array<Subscription>();
+    editMode: boolean = false;
+    newItemMode: boolean = false;
+    editedProduct = new Tomb();
+    showErrorAdminMode: boolean = false;
     constructor(private productService: ProductService,
         private activatedRoute: ActivatedRoute,
         private router: Router,
         public adminSessionService: AdminSessionService) {
         this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+
     }
 
     ngOnInit(): void {
-
+        this.editMode = false;
+        this.newItemMode = false;
         this.subscribes.push(this.productService.GetProducts().subscribe((res: any) => {
             this.initialProducts = res;
             this.products = res;
             this.subscribes.push(
                 this.activatedRoute.queryParamMap.subscribe((queryParams: any) => {
-                    let params= queryParams.params;
+                    let params = queryParams.params;
                     if (params.search) {
                         this.products = this.products.filter(el => {
                             return el.name?.toLowerCase().includes(params.search.toLowerCase()) ||
@@ -56,7 +62,7 @@ export class ProductsPageComponent implements OnInit {
                                 return true;
                             }
                         });
-                        (document.getElementById("priceFrom") as HTMLInputElement).value = params.from ;
+                        (document.getElementById("priceFrom") as HTMLInputElement).value = params.from;
                     }
                     if (params.to) {
                         this.products = this.products.filter(el => {
@@ -66,7 +72,7 @@ export class ProductsPageComponent implements OnInit {
                                 return true;
                             }
                         });
-                        (document.getElementById("priceTo") as HTMLInputElement).value = params.to ;
+                        (document.getElementById("priceTo") as HTMLInputElement).value = params.to;
                     }
                     if (params.sort) {
                         if (params.sort === 'cheapest') {
@@ -77,7 +83,7 @@ export class ProductsPageComponent implements OnInit {
                                     return 1;
                                 }
                             });
-                            (document.getElementById("sorting") as HTMLButtonElement).textContent ='Сначала дорогие'
+                            (document.getElementById("sorting") as HTMLButtonElement).textContent = 'Сначала дорогие'
                         }
                         if (params.sort === 'expensive') {
                             this.products.sort((a, b) => {
@@ -87,7 +93,7 @@ export class ProductsPageComponent implements OnInit {
                                     return 1;
                                 }
                             });
-                            (document.getElementById("sorting") as HTMLButtonElement).textContent ='Сначала дешевые'
+                            (document.getElementById("sorting") as HTMLButtonElement).textContent = 'Сначала дешевые'
                         }
                     }
                 })
@@ -102,16 +108,19 @@ export class ProductsPageComponent implements OnInit {
     }
     CheckCurrentPage() {
         this.currentPageId = Number(this.activatedRoute.snapshot.params['page']);
-        if (typeof this.currentPageId === 'number' && this.currentPageId > 0 && this.currentPageId <= this.pages ) {
+        console.log(this.currentPageId);
+        if (typeof this.currentPageId === 'number' && this.currentPageId > 0 && this.currentPageId <= this.pages) {
+            console.log("1")
             this.currentPage = this.currentPageId;
-        } else if(this.currentPage != 1) {
-            this.router.navigate([`/products`, 1], {queryParamsHandling: 'preserve'});
+        } else if (this.currentPageId != 1) {
+            console.log("2")
+            this.router.navigate([`/products`, 1], { queryParamsHandling: 'preserve' });
         }
     }
     CalculateAllPages() {
         this.pages = Math.ceil(this.products.length / 12);
-        if(this.pages === 0){
-            this.pages =1;
+        if (this.pages === 0) {
+            this.pages = 1;
         }
     }
     GetCurrentProducts() {
@@ -129,39 +138,39 @@ export class ProductsPageComponent implements OnInit {
         if (newPage <= this.pages && newPage > 0) {
             this.currentPage = newPage;
             this.GetCurrentProducts();
-            this.router.navigate(['/products', this.currentPage],{queryParamsHandling: 'preserve'})
+            this.router.navigate(['/products', this.currentPage], { queryParamsHandling: 'preserve' })
             console.log(newPage);
         }
     }
 
     CurrentTomb(id: number) {
         console.log(this.activatedRoute.snapshot.url);
-        let previousPage ={
-            url:this.activatedRoute.snapshot.url,
-            queryParams:this.activatedRoute.snapshot.queryParams
+        let previousPage = {
+            url: this.activatedRoute.snapshot.url,
+            queryParams: this.activatedRoute.snapshot.queryParams
         }
         sessionStorage.setItem('previousPage', JSON.stringify(previousPage));
         this.router.navigate([`/product`, id])
     }
     SearchProducts() {
         let searchCriteria = (document.getElementById("searchInput") as HTMLInputElement).value;
-        this.router.navigate(['/products',this.currentPage], { queryParams: { search: searchCriteria }});
+        this.router.navigate(['/products', this.currentPage], { queryParams: { search: searchCriteria } });
 
     }
-    PriceFromChanged(){
+    PriceFromChanged() {
         let priceFrom = (document.getElementById("priceFrom") as HTMLInputElement).value;
-        this.router.navigate(['/products',this.currentPage], { queryParams: { from: priceFrom }, queryParamsHandling: 'merge'});
+        this.router.navigate(['/products', this.currentPage], { queryParams: { from: priceFrom }, queryParamsHandling: 'merge' });
     }
-    PriceToChanged(){
+    PriceToChanged() {
         let priceTo = (document.getElementById("priceTo") as HTMLInputElement).value;
-        this.router.navigate(['/products',this.currentPage], { queryParams: { to: priceTo }, queryParamsHandling: 'merge'});
+        this.router.navigate(['/products', this.currentPage], { queryParams: { to: priceTo }, queryParamsHandling: 'merge' });
     }
-    SortingChanged(){
+    SortingChanged() {
         let sorting = (document.getElementById("sorting") as HTMLButtonElement).textContent;
-        if(sorting ==="Сначала дешевые"){
-            this.router.navigate(['/products',this.currentPage], { queryParams: { sort: 'cheapest' }, queryParamsHandling: 'merge'});
-        }else{
-            this.router.navigate(['/products',this.currentPage], { queryParams: { sort: 'expensive' }, queryParamsHandling: 'merge'});
+        if (sorting === "Сначала дешевые") {
+            this.router.navigate(['/products', this.currentPage], { queryParams: { sort: 'cheapest' }, queryParamsHandling: 'merge' });
+        } else {
+            this.router.navigate(['/products', this.currentPage], { queryParams: { sort: 'expensive' }, queryParamsHandling: 'merge' });
         }
 
     }
@@ -173,7 +182,45 @@ export class ProductsPageComponent implements OnInit {
             })
         )
     }
+    GoToEditMode(product: Tomb) {
+        this.editedProduct = product;
+        this.editMode = true;
+    }
+    GoToNewItemMode(){
+        this.editedProduct =new Tomb();
+        this.newItemMode = true;
+    }
+    CancelAdminMode(){
+        this.editMode = false;
+        this.newItemMode =false;
+        this.editedProduct = new Tomb();
 
+    }
+    SaveItem() {
+        console.log(this.editedProduct);
+        if(this.editedProduct.name === undefined ||
+            this.editedProduct.name.length <= 0 ||
+            this.editedProduct.material === undefined ||
+            this.editedProduct.material.length <= 0 ||
+            this.editedProduct.description === undefined ||
+            this.editedProduct.description.length <= 0 ||
+            this.editedProduct.price === undefined ||
+            this.editedProduct.price === null ||
+            Number.isNaN(Number.parseInt(this.editedProduct.price.toString())))
+            {
+                this.showErrorAdminMode = true;
+                return;
+            }
+        if (this.editMode === true) {
+            this.editedProduct.price=Number.parseInt(this.editedProduct.price.toString());
+            this.editMode = false;
+        }
+        if (this.newItemMode === true) {
+            this.editedProduct.price=Number.parseInt(this.editedProduct.price.toString());
+            this.newItemMode = false;
+        }
+        console.log(this.editedProduct);
+    }
     ngOnDestroy() {
         this.subscribes.forEach(sub => {
             sub.unsubscribe();

@@ -7,7 +7,6 @@ import { environment } from 'src/environments/environment.prod';
 export class AdminSessionService {
   isAuthorizated =false;
   constructor() {
-    console.log("kak")
    }
   CheckCreds(login:string,password:string){
     this.isAuthorizated=environment.adminLogin === login && environment.adminPassword === password;
