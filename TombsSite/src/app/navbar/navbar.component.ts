@@ -17,8 +17,17 @@ export class NavbarComponent implements OnInit {
 
     ngOnInit(): void {
     }
+    GoToMainPage(){
+        this.router.navigate(['/']);
+        setTimeout(()=>{
+            window.scrollTo(0,0);
+        })
+    }
     GoToContacts() {
         this.router.navigate(['/']);
-        window.scroll(66666666, 66666666);
+        setTimeout(()=>{
+            window.scrollTo(0, document.body.scrollHeight);
+        })
+       
     }
 }
