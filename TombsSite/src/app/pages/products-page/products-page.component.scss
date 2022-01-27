@@ -94,8 +94,8 @@ $redColor: #c65f5f;
     margin-right: 15px;
     font-size: 20px;
     text-align: center;
-    width: 230px;
-    min-width: 170px;
+    max-width: 230px;
+    width: 100%;
     height: 60px;
     margin-bottom: 15px;
 }
@@ -123,6 +123,7 @@ $redColor: #c65f5f;
 .products-nav__input {
     display: flex;
     max-width: 100px;
+    width: 100%;
     min-height: 20px;
     &:last-child {
         margin-right: 20px;
@@ -339,22 +340,27 @@ $redColor: #c65f5f;
     }
     // --- Admin-panel element end ---
     .products-nav {
-        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+    }
+    .products-nav__btn {
+        margin-right: 15px;
+        font-size: 24px;
+        text-align: center;
+        max-width: 300px;
+        width: 100%;
+        margin: 0;
+        margin-bottom: 15px;
     }
     .products-nav__price {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        max-width: 380px;
+        max-width: 400px;
         width: 100%;
-        margin-right: 15px;
-        background-color: $blackSmokeColor;
-        border-radius: 25px;
+        margin-right: 0;
     }
     .products-nav__search {
         margin: 0;
-        max-width: 230px;
+        max-width: 400px;
+        width: 100%;
     }
     .products__wrapper {
         width: 100%;
@@ -362,7 +368,10 @@ $redColor: #c65f5f;
         flex-direction: column;
     }
     .products-filters {
-        width: 230px;
+        max-width: 400px;
+        width: 100%;
+        margin: auto;
+        margin-bottom: 15px;
         cursor: pointer;
         &:hover {
             color: $redColor;
@@ -378,15 +387,6 @@ $redColor: #c65f5f;
     }
 }
 @media (max-width: 668px) {
-    .products-nav__search {
-        margin: 0;
-    }
-    .products-nav__price {
-        max-width: 300px;
-    }
-    .products-nav__input {
-        max-width: 80px;
-    }
 }
 @media (max-width: 650px) {
     .products-item {
@@ -395,10 +395,6 @@ $redColor: #c65f5f;
     }
 }
 @media (max-width: 588px) {
-    .products-nav__search {
-        max-width: 300px;
-        width: 100%;
-    }
 }
 
 /* Portrait phones and smaller */
@@ -414,10 +410,6 @@ $redColor: #c65f5f;
     .products__title {
         font-size: 50px;
         margin-bottom: 30px;
-    }
-    .products-nav__search {
-        max-width: 300px;
-        width: 100%;
     }
     .products-item {
         max-width: 300px;
