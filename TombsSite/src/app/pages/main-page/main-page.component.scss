@@ -60,10 +60,66 @@ $btnHoverColor: #ad4f4f;
 //-------------------------------------------------   ABOUT END   -------------------------------------------------
 
 //-------------------------------------------------   BENEFITS START   -------------------------------------------------
-
+.benefits__container {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
 .benefits {
     min-height: 100vh;
     background-color: $blackSmokeColor;
+}
+.slider-block {
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.slider-items {
+    position: relative;
+    width: 500%;
+    font-size: 0;
+    animation: 50s slider-block-ani infinite;
+}
+.slider-item {
+    width: 20%;
+    height: auto;
+    display: inline-block;
+    position: inherit;
+}
+
+@keyframes slider-block-ani {
+    0% {
+        left: 0%;
+    }
+
+    33% {
+        left: 0%;
+    }
+
+    38% {
+        left: -100%;
+    }
+
+    63% {
+        left: -100%;
+    }
+
+    68% {
+        left: -200%;
+    }
+
+    93% {
+        left: -200%;
+    }
+
+    99% {
+        left: -200%;
+    }
+
+    100% {
+        right: 200%;
+    }
 }
 .benefits__title {
     text-transform: uppercase;
