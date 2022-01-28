@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { Tomb } from '../models/tomb';
 import { environment } from 'src/environments/environment.prod';
+import { ProductWork } from '../models/productWork';
 
 @Injectable({
     providedIn: 'root'
@@ -24,5 +25,20 @@ export class ProductService {
     }
     EditProduct(product: Tomb){
         return this.http.post(environment.serverUrl + "/EditProduct", { product: product });
+    }
+    GetProductWorks() {
+        return this.http.get(environment.serverUrl + "/GetProductWorks");
+    }
+    GetProductWorkById(id: number){
+        return this.http.get(environment.serverUrl + "/GetProductWorkById/" + id.toString());
+    }
+    AddProductWork(productWork: ProductWork) {
+        return this.http.post(environment.serverUrl + "/AddProductWork", { product: productWork });
+    }
+    DeleteProductWorkById(id: number) {
+       return this.http.get(environment.serverUrl + "/DeleteProductWorkById/" + id.toString())
+    }
+    EditProductWork(productWork: ProductWork){
+        return this.http.post(environment.serverUrl + "/EditProduct", { product: productWork });
     }
 }
