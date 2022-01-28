@@ -17,9 +17,9 @@ export class TelegramService {
         message+='Название товара: '+tomb.name+'\n';
         message+='Материал: ' +tomb.material+'\n';
         message+='Описание товара: '+tomb.description+'\n';
-        message+='Цена товара: '+tomb.price+' грн.'+'\n \n';
+        message+='Цена товара: '+tomb.price+' грн.'+'\n';
     })
-    message+= 'УСЛУГИ В ЗАКАЗЕ \n'
+    message+= '\n УСЛУГИ В ЗАКАЗЕ \n'
     order.productWorks.forEach(productWork=>{
         message+='Название услуги: '+productWork.name+'\n';
         message+='Описание услуги: '+productWork.description+'\n';
@@ -38,6 +38,13 @@ export class TelegramService {
       }
     })
     message+= 'ОБЩАЯ СТОИМОСТЬ: ' + orderSum.toString().toUpperCase() +' грн.';
+    message =encodeURI(message);
+    return this.http.post(`https://api.telegram.org/bot${environment.telegramBotToken}/sendMessage?chat_id=${environment.telegramChatId}&parse_mode=html&text=${message}`,{});
+  }
+  SendRecallMeToTelegram(name:string, phone:string){
+    let message= ' ПЕРЕЗВОНИТЕ МНЕ \n \n'
+    message+= 'ФИО: ' + name + '\n';
+    message+= 'Номер телефона: ' + phone +'\n';
     message =encodeURI(message);
     return this.http.post(`https://api.telegram.org/bot${environment.telegramBotToken}/sendMessage?chat_id=${environment.telegramChatId}&parse_mode=html&text=${message}`,{});
   }

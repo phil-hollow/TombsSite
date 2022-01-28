@@ -112,11 +112,11 @@
                 </div>
             </div>
 
-            <form action="" class="contacts__form">
-                <input type="text" class="contacts__form-input" placeholder="ФИО">
-                <input type="tel" class="contacts__form-input" placeholder="Телефон">
-                <button type="submit" class="contacts__form-btn btn">перезвонить</button>
-            </form>
+            <div action="" class="contacts__form">
+                <input id="name" type="text" class="contacts__form-input" placeholder="ФИО">
+                <input id="phone" type="tel" class="contacts__form-input" placeholder="Телефон">
+                <button (click)="SendRecallMeMessage()"  class="contacts__form-btn btn">перезвонить</button>
+            </div>
         </div>
     </div>
 </div>

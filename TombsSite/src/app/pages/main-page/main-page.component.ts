@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TelegramService } from 'src/app/services/telegram.service';
 
 @Component({
     selector: 'app-main-page',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainPageComponent implements OnInit {
 
-    constructor() { }
+    constructor(private telegramService:TelegramService) { }
 
     ngOnInit(): void {
+    }
+    SendRecallMeMessage(){
+      let name=  (document.getElementById("name") as HTMLInputElement).value;
+      let phone=  (document.getElementById("phone") as HTMLInputElement).value;
+      this.telegramService.SendRecallMeToTelegram(name,phone).subscribe(res=>{});
     }
 
     //var slides = document.querySelectorAll('.slides .slide');
