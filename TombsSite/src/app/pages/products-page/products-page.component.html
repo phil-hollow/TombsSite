@@ -5,10 +5,10 @@
             <p class="products-admin__error___text">Все поля должны быть заполнены</p>
         </div>
         <input type="text" placeholder="Название товара" class="products-admin__input" [(ngModel)]="editedProduct.name">
-        <img src="../../../assets/images/card-pic_1.png" class="products-admin__preview-pic">
+        <img [src]="imgToUpload" class="products-admin__preview-pic">
         <div class="products-admin__input-wrapper">
-            <input type="file" name="file" class="products-admin__pic-input">
-            <label for="products-admin__pic-input" class="products-admin__pic-btn">
+            <input id="upfile" (change)="HandleFileInput($event)" accept=".png,.jpg,jpeg" type="file" name="file" class="products-admin__pic-input">
+            <label (click)="ClickOnInputTypeFile()" for="products-admin__pic-input" class="products-admin__pic-btn">
                 <div class="input__file-button-text">Выберите файл</div>
             </label>
         </div>

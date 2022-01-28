@@ -41,4 +41,7 @@ export class ProductService {
     EditProductWork(productWork: ProductWork){
         return this.http.post(environment.serverUrl + "/EditProduct", { product: productWork });
     }
+    UploadImage(image:any,imgName:string){
+        return this.http.post(environment.serverUrl + "/UploadImage", { img: image,imgName:imgName })
+    }
 }

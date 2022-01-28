@@ -9,7 +9,7 @@ ServerHelper.SetUpServer(app);
 
 FileUtills.getProductFilePath();
 FileUtills.getProductWorkFilePath();
-
+FileUtills.getPathToImages()
 app.listen(3000, () => {
     console.log('The application is listening on port 3000!');
 })

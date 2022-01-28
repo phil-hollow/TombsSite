@@ -29,6 +29,8 @@ export class ProductsPageComponent implements OnInit {
     newItemMode: boolean = false;
     editedProduct = new Tomb();
     showErrorAdminMode: boolean = false;
+    imgToUpload: any ;
+    isImageChanged: boolean =false;
     constructor(private productService: ProductService,
         private activatedRoute: ActivatedRoute,
         private router: Router,
@@ -183,18 +185,20 @@ export class ProductsPageComponent implements OnInit {
         )
     }
     GoToEditMode(product: Tomb) {
-        this.editedProduct = product;
+        this.imgToUpload =environment.serverUrl+"/images/"+product.picture;
+        this.editedProduct = JSON.parse(JSON.stringify(product));
         this.editMode = true;
     }
     GoToNewItemMode(){
         this.editedProduct =new Tomb();
         this.newItemMode = true;
+        this.imgToUpload ="";
     }
     CancelAdminMode(){
         this.editMode = false;
         this.newItemMode =false;
         this.editedProduct = new Tomb();
-
+        this.imgToUpload ="";
     }
     SaveItem() {
         console.log(this.editedProduct);
@@ -213,14 +217,71 @@ export class ProductsPageComponent implements OnInit {
             }
         if (this.editMode === true) {
             this.editedProduct.price=Number.parseInt(this.editedProduct.price.toString());
+            if(this.isImageChanged && this.editedProduct.picture){
+                this.subscribes.push(
+                    this.productService.EditProduct(this.editedProduct).subscribe(res=>{
+                }))
+                this.subscribes.push(
+                    this.productService.UploadImage(this.imgToUpload, this.editedProduct.picture).subscribe(res=>{
+                }))
+            }else{
+                this.subscribes.push(
+                    this.productService.EditProduct(this.editedProduct).subscribe(res=>{
+                }))
+            }
             this.editMode = false;
+            this.ngOnInit();
         }
         if (this.newItemMode === true) {
-            this.editedProduct.price=Number.parseInt(this.editedProduct.price.toString());
-            this.newItemMode = false;
+            if(this.isImageChanged && this.editedProduct.picture){
+                this.subscribes.push(
+                    this.productService.AddProduct(this.editedProduct).subscribe(res=>{
+                }))
+                this.subscribes.push(
+                    this.productService.UploadImage(this.imgToUpload, this.editedProduct.picture).subscribe(res=>{
+                }))
+              
+                this.editedProduct.price=Number.parseInt(this.editedProduct.price.toString());
+                this.newItemMode = false;
+                this.ngOnInit();
+            }else{
+                this.showErrorAdminMode =true;
+            }
+           
         }
-        console.log(this.editedProduct);
+        
     }
+    HandleFileInput(event:any) {
+        let files = event.target.files;
+        if (files.length != 1) {
+          return;
+        }
+        const file = files[0];
+        //const extensionRegex = /\.([^.]*?)(?=\?|#|$)/;
+        let splitedFilePath = file.name.split(".")
+        
+        const fileExtension = "." + splitedFilePath[splitedFilePath.length - 1]//.match(extensionRegex)[0];
+    
+        if (".jpeg, .JPEG, .png, .PNG, .JPG, .jpg".includes(fileExtension)) {
+          const reader = new FileReader();
+            
+            reader.onload = () => {
+              this.imgToUpload = reader.result;
+              this.editedProduct.picture = file.name;
+              this.isImageChanged = true;
+            };
+            reader.readAsDataURL(file);
+        }
+    }
+    ClickOnInputTypeFile(){
+        document.getElementById("upfile")?.click();
+    }
+      
+    // save() {
+    //     this.apiService.PostSaveHandrecordImg(this.imgBase64).subscribe(() => {
+    //       this.close();
+    //     })
+    //   }
     ngOnDestroy() {
         this.subscribes.forEach(sub => {
             sub.unsubscribe();

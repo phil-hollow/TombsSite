@@ -46,7 +46,7 @@ export class ServicesPageComponent implements OnInit {
   AdminDeleteProductWork(id: number) {
     this.subscribes.push(this.productService.DeleteProductWorkById(id).subscribe((res: any) => {
       let index = this.productWorks.findIndex(el => el.id === id);
-      if (index > 0) {
+      if (index >= 0) {
         this.productWorks.splice(index, 1);
       }
     }))
