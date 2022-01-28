@@ -1,4 +1,15 @@
 <div class="services">
+    <!---------------PopUp START--------------->
+    <div class="popup">
+        <div class="popup__wrapper">
+            <div class="popup__text">Услуга успешно добавлена в корзину!</div>
+            <div class="popup__btn-wrapper">
+                <button class="popup__btn btn">ОК</button>
+                <button class="popup__btn btn">К заказу</button>
+            </div>
+        </div>
+    </div>
+    <!---------------PopUp END--------------->
     <div class="container">
         <!--- Admin-panel element start --->
         <form action="" class="services-admin-form">
@@ -16,15 +27,24 @@
         <button class="services__add-product btn">новая услуга</button>
         <!--- Admin-panel element end --->
         <div class="services__wrapper" *ngIf="productWorks.length > 0">
+
             <div class="services__item" *ngFor="let productWork of productWorks">
-                <img src="{{ServerImagesUrl +'/images/'+productWork.picture}}" alt="" class="services__pic">
-                <div class="text__block">
-                    <h2 class="services__product-name">{{productWork.name}}</h2>
-                    <div class="services__text">{{productWork.description}}</div>
+                <!--- Admin-panel element start --->
+                <div *ngIf="adminSessionService.isAuthorizated" class="services__admin-wrapper">
+                    <img src="../../../assets/images/admin-edit.svg" class="services-items__icon">
+                    <img src="../../../assets/images/admin-close.svg" class="services-items__icon">
                 </div>
-                <div class="price__block">
-                    <div class="services__price">{{productWork.price}}грн</div>
-                    <div (click)="AddToOrder(productWork)" class="services__btn btn">заказать</div>
+                <!--- Admin-panel element end --->
+                <div class="services__item-wrapper">
+                    <img src="{{ServerImagesUrl +'/images/'+productWork.picture}}" alt="" class="services__pic">
+                    <div class="text__block">
+                        <h2 class="services__product-name">{{productWork.name}}</h2>
+                        <div class="services__text">{{productWork.description}}</div>
+                    </div>
+                    <div class="price__block">
+                        <div class="services__price">{{productWork.price}}грн</div>
+                        <div (click)="AddToOrder(productWork)" class="services__btn btn">заказать</div>
+                    </div>
                 </div>
             </div>
         </div>

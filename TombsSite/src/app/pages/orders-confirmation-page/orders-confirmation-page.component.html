@@ -1,4 +1,14 @@
 <div class="confirmation-page">
+    <!---------------PopUp START--------------->
+    <div class="popup">
+        <div class="popup__wrapper">
+            <div class="popup__text">Ваш заказ успешно оформлен!</div>
+            <div class="popup__text">Мы свяжемся с вами в ближайшее время.</div>
+
+            <button class="popup__btn btn">ОК</button>
+        </div>
+    </div>
+    <!---------------PopUp END--------------->
     <div class="container">
         <div class="confirmation-page__wrapper">
             <div class="confirmation-page__products">
@@ -19,7 +29,8 @@
                         </div>
                     </div>
                     <div class="products-item" *ngFor="let productWork of orderService.order.productWorks">
-                        <img src="{{ServerImagesUrl +'/images/'+productWork.picture}}" alt="" class="products-item__pic">
+                        <img src="{{ServerImagesUrl +'/images/'+productWork.picture}}" alt=""
+                            class="products-item__pic">
                         <div class="products-item__text-wrapper">
                             <div class="products-item__title">{{productWork.name}}</div>
                             <div class="products-item__description">{{productWork.description}}</div>
