@@ -13,14 +13,51 @@ $redColor: #c65f5f;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%);
     width: 100%;
     height: 100%;
+    padding-top: 150px;
     background-color: rgb(235, 235, 235);
+}
+.products-admin__input-wrapper {
+    width: 100%;
+    position: relative;
+    margin: 20px 0;
+    text-align: center;
+}
+.products-admin__pic-input {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+}
+
+.products-admin__pic-btn {
+    max-width: 220px;
+    width: 100%;
+    height: 50px;
+    background-color: $redColor;
+    color: $mainColor;
+    font-size: 20px;
+    text-transform: uppercase;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    cursor: pointer;
+    margin: 0 auto;
+    border-radius: 25px;
+    &:hover {
+        transform: scale(1.02);
+        transition: 0.2s;
+    }
+}
+.input__file-button-text {
+    margin: 0 auto;
+}
+.products-admin__preview-pic {
+    max-width: 290px;
+    width: 100%;
 }
 .products-admin__input {
     font-size: 18px;
@@ -31,7 +68,7 @@ $redColor: #c65f5f;
     margin-bottom: 40px;
     padding: 20px;
     border-radius: 25px;
-    &:nth-child(3) {
+    &:nth-child(5) {
         min-height: 160px;
     }
 }
@@ -62,13 +99,12 @@ $redColor: #c65f5f;
     margin: 0 auto;
 }
 // --- Admin-panel element end ---
-.products {
-    padding-top: 180px;
-}
+
 .products__title {
     text-align: center;
     color: $blackColor;
     margin-bottom: 60px;
+    padding-top: 180px;
 }
 .products-nav {
     max-width: 100%;
@@ -81,7 +117,7 @@ $redColor: #c65f5f;
     text-transform: uppercase;
     font-size: 20px;
     text-align: center;
-    margin-right: 55px;
+    margin-right: 25px;
     border: 3px solid black;
     height: 60px;
     width: 230px;
@@ -127,7 +163,9 @@ $redColor: #c65f5f;
     }
 }
 .products-nav__input {
+    font-size: 18px;
     display: flex;
+    min-width: 60px;
     max-width: 100px;
     width: 100%;
     min-height: 20px;
@@ -149,7 +187,7 @@ $redColor: #c65f5f;
 .products-nav__search-input {
     max-height: 60px;
     max-width: 100%;
-    min-width: 140px;
+    min-width: 100px;
     width: 100%;
     border-radius: inherit;
     padding-left: 15px;
@@ -284,10 +322,11 @@ $redColor: #c65f5f;
     margin-bottom: 15px;
 }
 .products-items__notFound___text {
+    width: 100%;
     font-size: 45px;
     font-weight: bold;
-    line-height: 29px;
-    margin-bottom: 15px;
+    line-height: 49px;
+    text-align: center;
     color: $redColor;
 }
 .products-items__notFound {
@@ -326,6 +365,10 @@ $redColor: #c65f5f;
     .products-item__wrapper-pic {
         height: 200px;
     }
+    .products-items__icon {
+        width: 20px;
+        height: 20px;
+    }
 }
 @media (max-width: 991.98px) {
     // --- Admin-panel element start ---
@@ -335,7 +378,12 @@ $redColor: #c65f5f;
 
     // --- Admin-panel element end ---
 }
-
+@media (max-width: 932.98px) {
+    .products-item {
+        max-width: 420px;
+        width: 100%;
+    }
+}
 /* Landscape phones and portrait tablets */
 @media (max-width: 767.98px) {
     // --- Admin-panel element start ---
@@ -343,10 +391,16 @@ $redColor: #c65f5f;
         top: 55%;
     }
     // --- Admin-panel element end ---
+
     .products-nav {
         flex-direction: column;
         align-items: center;
     }
+    // --- Admin element start ---
+    .products__add-product {
+        margin-right: 0;
+    }
+    // --- Admin element end ---
     .products-nav__btn {
         margin-right: 15px;
         font-size: 24px;
@@ -390,16 +444,6 @@ $redColor: #c65f5f;
         display: none;
     }
 }
-@media (max-width: 668px) {
-}
-@media (max-width: 650px) {
-    .products-item {
-        max-width: 350px;
-        width: 100%;
-    }
-}
-@media (max-width: 588px) {
-}
 
 /* Portrait phones and smaller */
 @media (max-width: 480.98px) {
@@ -408,17 +452,30 @@ $redColor: #c65f5f;
         width: 80%;
     }
     // --- Admin-panel element end ---
-    .products {
-        padding-top: 130px;
-    }
     .products__title {
         font-size: 50px;
         margin-bottom: 30px;
+        padding-top: 130px;
     }
     .products-item {
         max-width: 300px;
+        height: 380px;
         width: 100%;
         margin: 10px 0;
+    }
+    .products-item__wrapper-pic {
+        margin-top: 30px;
+        margin-bottom: 15px;
+    }
+    .products-item__title {
+        font-size: 22px;
+        line-height: 29px;
+        margin-bottom: 10px;
+    }
+    .products-item__btn {
+        width: 150px;
+        min-height: 35px;
+        margin-bottom: 10px;
     }
 }
 

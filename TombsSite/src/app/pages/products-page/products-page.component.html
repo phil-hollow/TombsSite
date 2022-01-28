@@ -1,28 +1,39 @@
-<!--- Admin-panel element start --->
-<div *ngIf="newItemMode || editMode" class="products-admin-form">
-    <div *ngIf="showErrorAdminMode">
-        <p class="products-admin__error___text">Все поля должны быть заполнены</p>
+<div class="products">
+    <!--- Admin-panel element start --->
+    <div *ngIf="newItemMode || editMode" class="products-admin-form">
+        <div *ngIf="showErrorAdminMode">
+            <p class="products-admin__error___text">Все поля должны быть заполнены</p>
+        </div>
+        <input type="text" placeholder="Название товара" class="products-admin__input" [(ngModel)]="editedProduct.name">
+        <img src="../../../assets/images/card-pic_1.png" class="products-admin__preview-pic">
+        <div class="products-admin__input-wrapper">
+            <input type="file" name="file" class="products-admin__pic-input">
+            <label for="products-admin__pic-input" class="products-admin__pic-btn">
+                <div class="input__file-button-text">Выберите файл</div>
+            </label>
+        </div>
+        <input id="material" type="text" placeholder="Материал" class="products-admin__input"
+            [(ngModel)]="editedProduct.material">
+        <textarea id="description" type="text" placeholder="Описание товара" class="products-admin__input"
+            [(ngModel)]="editedProduct.description"></textarea>
+        <input id="price" type="number" placeholder="Цена" class="products-admin__input" min="0" step="1" max="99999999"
+            (keydown)="$event.keyCode == 188 ||$event.keyCode == 189 || $event.keyCode == 187 || $event.keyCode == 69 || $event.keyCode ==190 ? false : true"
+            [(ngModel)]="editedProduct.price">
+        <div class="products-admin__btn-wrapper">
+            <button (click)="SaveItem()" class="products-admin__accept btn">ок</button>
+            <button (click)="CancelAdminMode()" class="products-admin__decline btn">отменить</button>
+        </div>
     </div>
-    <input  type="text" placeholder="Название товара" class="products-admin__input" [(ngModel)]="editedProduct.name">
-    <input type="file" name="file" >
-    <input id="material" type="text" placeholder="Материал" class="products-admin__input" [(ngModel)]="editedProduct.material">
-    <textarea id="description" type="text" placeholder="Описание товара" class="products-admin__input" [(ngModel)]="editedProduct.description"></textarea>
-    <input id="price" type="number" placeholder="Цена" class="products-admin__input" min="0" step="1" max="99999999" (keydown)="$event.keyCode == 188 ||$event.keyCode == 189 || $event.keyCode == 187 || $event.keyCode == 69 || $event.keyCode ==190 ? false : true" [(ngModel)]="editedProduct.price">
-    <div class="products-admin__btn-wrapper">
-        <button (click)="SaveItem()" class="products-admin__accept btn">ок</button>
-        <button (click)="CancelAdminMode()"  class="products-admin__decline btn">отменить</button>
-    </div>
-</div>
-<!--- Admin-panel element end --->
-<div *ngIf="!newItemMode && !editMode" class="products">
-    <div class="container">
+    <!--- Admin-panel element end --->
+    <div *ngIf="!newItemMode && !editMode" class="container">
         <div class="title products__title">каталог товаров</div>
 
 
         <div class="products-nav">
 
             <!--- Admin-panel element start --->
-            <button (click)="GoToNewItemMode()" *ngIf="adminSessionService.isAuthorizated" class="products__add-product btn-without-hover">новый продукт</button>
+            <button (click)="GoToNewItemMode()" *ngIf="adminSessionService.isAuthorizated"
+                class="products__add-product btn-without-hover">новый продукт</button>
             <!--- Admin-panel element end --->
 
             <button id="sorting" (click)="SortingChanged()" class="btn products-nav__btn">Сначала дешёвые</button>
@@ -61,30 +72,31 @@
                 <div class="prducts-filters__item">Lorem, ipsum.</div>
                 <div class="prducts-filters__item">Lorem, ipsum.</div>
             </div>
-        <div *ngIf="initialProducts.length !== 0"
-            [ngClass]="{'products-items':currentProducts.length > 0,'products-items2':currentProducts.length === 0}">
-            <div *ngIf="currentProducts.length ===0" class="products-items__notFound">
-                <p class="products-items__notFound___text">По вашему запросу ничего не найдено</p>
-            </div>
-            <div class="products-item" *ngFor="let product of currentProducts">
-
-                <!--- Admin-panel element start --->
-                <div *ngIf="adminSessionService.isAuthorizated" class="products-itmes__admin-wrapper">
-                    <img (click)="GoToEditMode(product)" src="../../../assets/images/admin-edit.svg" class="products-items__icon">
-                    <img (click)="AdminDeleteProduct(product.id)" src="../../../assets/images/admin-close.svg"
-                        class="products-items__icon">
+            <div *ngIf="initialProducts.length !== 0"
+                [ngClass]="{'products-items':currentProducts.length > 0,'products-items2':currentProducts.length === 0}">
+                <div *ngIf="currentProducts.length ===0" class="products-items__notFound">
+                    <p class="products-items__notFound___text">По вашему запросу ничего не найдено</p>
                 </div>
-                <!--- Admin-panel element end --->
+                <div class="products-item" *ngFor="let product of currentProducts">
 
-                <div class="products-item__wrapper-pic">
-                    <img src="{{ServerImagesUrl +'/images/'+product.picture}}" class="products-item__pic">
+                    <!--- Admin-panel element start --->
+                    <div *ngIf="adminSessionService.isAuthorizated" class="products-itmes__admin-wrapper">
+                        <img (click)="GoToEditMode(product)" src="../../../assets/images/admin-edit.svg"
+                            class="products-items__icon">
+                        <img (click)="AdminDeleteProduct(product.id)" src="../../../assets/images/admin-close.svg"
+                            class="products-items__icon">
+                    </div>
+                    <!--- Admin-panel element end --->
+
+                    <div class="products-item__wrapper-pic">
+                        <img src="{{ServerImagesUrl +'/images/'+product.picture}}" class="products-item__pic">
+                    </div>
+                    <div class="products-item__title">{{product.name}}</div>
+                    <div class="products-item__title">{{product.price}} грн</div>
+                    <button class="btn products-item__btn" (click)="CurrentTomb(product.id)">Подробнее</button>
                 </div>
-                <div class="products-item__title">{{product.name}}</div>
-                <div class="products-item__title">{{product.price}} грн</div>
-                <button class="btn products-item__btn" (click)="CurrentTomb(product.id)">Подробнее</button>
             </div>
         </div>
-    </div>
 
         <div class="products-switcher">
             <button (click)="ChangePage(-1)" class="btn products-switcher__btn">&lt;</button>
