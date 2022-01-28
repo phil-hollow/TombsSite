@@ -39,7 +39,7 @@ export class OrderService {
     this.CalculateOrderSum();
     this.SaveOrderDataInSession();
   }
-  DeleteproductWorkById(id: number) {
+  DeleteProductWorkById(id: number) {
     let index = this.order.productWorks.findIndex(el => el.id === id);
     if (index != -1) {
       this.order.productWorks.splice(index, 1);
