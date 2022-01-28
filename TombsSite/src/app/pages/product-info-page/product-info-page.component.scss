@@ -89,10 +89,12 @@ $redColor: #c65f5f;
     color: $mainColor;
 }
 .info-page__description {
-    max-width: 670px;
+    max-width: 580px;
     flex-basis: 53%;
-    border: $blackColor 4px solid;
+    background-color: rgba($color: #ffffff, $alpha: 0.95);
+    border: 3px solid $blackSmokeColor;
     border-radius: 20px;
+    color: $blackColor;
 }
 .info-page__description-container {
     max-width: 525px;
@@ -100,12 +102,11 @@ $redColor: #c65f5f;
     padding: 0 20px;
 }
 .info-page__description-title {
-    margin: 35px 20px;
+    margin: 45px 20px;
     text-align: center;
     font-weight: bold;
     font-size: 45px;
     line-height: 55px;
-    text-shadow: 2px 2px 2px $blackColor;
 }
 .info-page__description-material {
     font-size: 26px;
@@ -125,7 +126,7 @@ $redColor: #c65f5f;
 .info-page__description-text {
     max-height: 290px;
     overflow-y: scroll;
-    font-size: 16px;
+    font-size: 18px;
     line-height: 37px;
     margin-bottom: 50px;
     scrollbar-width: 10px;
@@ -176,6 +177,8 @@ $redColor: #c65f5f;
     }
     .info-page__description {
         max-width: 100%;
+        border: 3px solid $redColor;
+        color: $blackColor;
     }
     .info-page__description-container {
         max-width: 725px;
@@ -221,15 +224,14 @@ $redColor: #c65f5f;
     }
     .info-page__description-title {
         margin: 25px 15px;
-        text-align: center;
-        font-weight: bold;
         font-size: 40px;
-        line-height: 55px;
-        text-shadow: 2px 2px 2px $blackColor;
     }
     .info-page__description-material {
         font-size: 22px;
         margin-bottom: 10px;
+    }
+    .info-page__description-title {
+        font-size: 33px;
     }
     .info-page__description-subtitle {
         font-weight: bold;
@@ -239,6 +241,7 @@ $redColor: #c65f5f;
     }
     .info-page__description-text {
         margin-bottom: 30px;
+        max-height: 100px;
     }
     .info-page__buttons {
         flex-wrap: wrap;

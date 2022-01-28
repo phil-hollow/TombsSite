@@ -86,7 +86,7 @@ $blackCircleColor: #564f4f;
     font-size: 50px;
     line-height: 61px;
     text-transform: uppercase;
-    padding-left: 10%;
+    text-align: center;
     margin-bottom: 50px;
     color: $mainColor;
     text-shadow: 2px 2px 2px #000000;
@@ -174,6 +174,30 @@ $blackCircleColor: #564f4f;
     max-height: 90px;
     background-color: #c77979;
     color: $mainColor;
+    display: none;
+}
+.confirmation-page__products-missing {
+    display: flex;
+    flex-direction: column;
+    color: $mainColor;
+    overflow: hidden;
+}
+.confirmation-page__products-missing-text {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 40px;
+    align-self: center;
+    text-align: center;
+    margin-bottom: 60px;
+}
+.confirmation-page__products-missing-btn {
+    align-self: center;
+    max-width: 280px;
+    width: 100%;
+    min-height: 60px;
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-transform: uppercase;
 }
 .confirmation-page__contact {
     max-width: 400px;
@@ -274,11 +298,12 @@ $blackCircleColor: #564f4f;
 }
 // --- Admin-panel element end ---
 
-@media (max-width: 1600px) {
+@media (max-width: 1400px) {
     .confirmation-page__products-title {
-        padding-left: 0;
-        padding-right: 10%;
-        text-align: right;
+        padding-left: 25%;
+    }
+    .confirmation-page__products-missing {
+        padding-left: 25%;
     }
 }
 
@@ -289,7 +314,7 @@ $blackCircleColor: #564f4f;
         background-color: $blackSmokeColor;
     }
     .confirmation-page__wrapper {
-        padding-top: 60px;
+        padding-top: 130px;
         flex-wrap: wrap;
     }
     .confirmation-page__products {
@@ -299,8 +324,10 @@ $blackCircleColor: #564f4f;
         margin-bottom: 60px;
     }
     .confirmation-page__products-title {
-        padding-right: 0;
-        text-align: center;
+        padding-left: 0;
+    }
+    .confirmation-page__products-missing {
+        padding-left: 0;
     }
     .confirmation-page__products-block {
         overflow-y: auto;
@@ -316,9 +343,6 @@ $blackCircleColor: #564f4f;
 
 /* Landscape phones and portrait tablets */
 @media (max-width: 767.98px) {
-    .confirmation-page__wrapper {
-        padding-top: 30px;
-    }
 }
 
 @media (max-width: 539.98px) {
@@ -330,9 +354,6 @@ $blackCircleColor: #564f4f;
     }
     .confirmation-page__products-block::-webkit-scrollbar {
         width: 0;
-    }
-    .confirmation-page__wrapper {
-        padding-top: 20px;
     }
     .products-item {
         min-width: 200px;
@@ -369,16 +390,11 @@ $blackCircleColor: #564f4f;
     .confirmation-page__products {
         min-width: 200px;
     }
-    .confirmation-page__products-price {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
 }
 /* Portrait phones and smaller */
 @media (max-width: 480.98px) {
-    .confirmation-page__products-title {
-        font-size: 40px;
+    .confirmation-page__products-missing-text {
+        font-size: 35px;
     }
     .confirmation-page__contact-title {
         font-size: 40px;
