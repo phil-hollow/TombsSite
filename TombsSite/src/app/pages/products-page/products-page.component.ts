@@ -31,6 +31,8 @@ export class ProductsPageComponent implements OnInit {
     showErrorAdminMode: boolean = false;
     imgToUpload: any ;
     isImageChanged: boolean =false;
+    deleteQuestion:boolean =false;
+    deletedProductId:number =-1;
     constructor(private productService: ProductService,
         private activatedRoute: ActivatedRoute,
         private router: Router,
@@ -176,10 +178,10 @@ export class ProductsPageComponent implements OnInit {
         }
 
     }
-    AdminDeleteProduct(id: number) {
+    AdminDeleteProduct() {
         this.subscribes.push(
-            this.productService.DeleteProductById(id).subscribe((res: any) => {
-                console.log(res);
+            this.productService.DeleteProductById(this.deletedProductId).subscribe((res: any) => {
+                this.deleteQuestion =false;
                 this.ngOnInit();
             })
         )

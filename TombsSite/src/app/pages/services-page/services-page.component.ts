@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs/internal/Subscription';
 import { ProductWork } from 'src/app/models/productWork';
 import { AdminSessionService } from 'src/app/services/admin-session.service';
@@ -18,7 +19,11 @@ export class ServicesPageComponent implements OnInit {
   editedProductWork: ProductWork =new ProductWork();
   editMode: boolean = false;
   newItemMode: boolean = false;
-  constructor(private productService: ProductService, private orderService: OrderService, public adminSessionService: AdminSessionService) {
+  isAddedToOrder:boolean =false;
+  constructor(private productService: ProductService, 
+    private orderService: OrderService, 
+    public adminSessionService: AdminSessionService,
+    private router:Router) {
     this.subscribes.push(this.productService.GetProductWorks().subscribe((res: any) => {
       this.productWorks = res;
     }))
@@ -28,6 +33,7 @@ export class ServicesPageComponent implements OnInit {
 
   }
   AddToOrder(productWork: ProductWork) {
+    this.isAddedToOrder =true;
     this.orderService.AddProductWork(productWork);
   }
   GoToEditMode(productWork: ProductWork) {
@@ -50,6 +56,9 @@ export class ServicesPageComponent implements OnInit {
         this.productWorks.splice(index, 1);
       }
     }))
+  }
+  GoToOrder(){
+    this.router.navigate(['/order-confirm']);
   }
   ngOnDestroy() {
     this.subscribes.forEach(sub => {

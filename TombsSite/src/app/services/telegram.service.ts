@@ -9,17 +9,17 @@ export class TelegramService {
 
   constructor(private http:HttpClient) { }
   SendOrderToTelegram(order:Order){
-    let message = 'ЗАКАЗ \n';
+    let message = 'ЗАКАЗ \n \n';
     message+= 'ФИО: ' + order.userName + '\n';
     message+= 'Номер телефона: ' +order.phoneNumber +'\n';
-    message+= '\n ТОВАРЫ В ЗАКАЗЕ \n'
+    message+= '\n ТОВАРЫ В ЗАКАЗЕ \n \n'
     order.tombs.forEach(tomb=>{
         message+='Название товара: '+tomb.name+'\n';
         message+='Материал: ' +tomb.material+'\n';
         message+='Описание товара: '+tomb.description+'\n';
-        message+='Цена товара: '+tomb.price+' грн.'+'\n';
+        message+='Цена товара: '+tomb.price+' грн.'+'\n \n';
     })
-    message+= '\n УСЛУГИ В ЗАКАЗЕ \n'
+    message+= '\n УСЛУГИ В ЗАКАЗЕ \n \n'
     order.productWorks.forEach(productWork=>{
         message+='Название услуги: '+productWork.name+'\n';
         message+='Описание услуги: '+productWork.description+'\n';

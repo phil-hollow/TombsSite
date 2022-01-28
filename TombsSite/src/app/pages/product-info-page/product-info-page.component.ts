@@ -16,6 +16,7 @@ export class ProductInfoPageComponent implements OnInit {
   productId: number;
   currentProduct: Tomb = new Tomb();
   ServerImagesUrl: string = environment.serverUrl
+  isAddedToOrder:boolean =false;
   constructor(private productService: ProductService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
@@ -32,6 +33,7 @@ export class ProductInfoPageComponent implements OnInit {
   }
   AddToOrder() {
     this.orderService.AddTomb(this.currentProduct);
+    this.isAddedToOrder =true;
   }
   GoBack() {
     let previousPageJSON = sessionStorage.getItem('previousPage');
@@ -42,7 +44,9 @@ export class ProductInfoPageComponent implements OnInit {
     } else {
       this.router.navigate(['/products', 1]);
     }
-
+  }
+  GoToOrder(){
+    this.router.navigate(['/order-confirm'])
   }
 
 }

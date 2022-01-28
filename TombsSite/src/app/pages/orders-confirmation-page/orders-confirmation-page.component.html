@@ -1,11 +1,11 @@
 <div class="confirmation-page">
     <!---------------PopUp START--------------->
-    <div class="popup">
+    <div *ngIf="isOrderSuccessed" class="popup">
         <div class="popup__wrapper">
             <div class="popup__text">Ваш заказ успешно оформлен!</div>
             <div class="popup__text">Мы свяжемся с вами в ближайшее время.</div>
 
-            <button class="popup__btn btn">ОК</button>
+            <button (click)="ClearOrder()" class="popup__btn btn">ОК</button>
         </div>
     </div>
     <!---------------PopUp END--------------->

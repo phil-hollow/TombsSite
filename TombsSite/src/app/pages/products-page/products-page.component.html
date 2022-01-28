@@ -1,11 +1,11 @@
 <div class="products">
     <!---------------PopUp START--------------->
-    <div class="popup">
+    <div *ngIf="deleteQuestion" class="popup">
         <div class="popup__wrapper">
             <div class="popup__text">Вы действительно хотите удалить товар?</div>
             <div class="popup__btn-wrapper">
-                <button class="popup__btn btn">ДА</button>
-                <button class="popup__btn btn">НЕТ</button>
+                <button (click)="AdminDeleteProduct()"class="popup__btn btn">ДА</button>
+                <button (click)="deleteQuestion=false" class="popup__btn btn">НЕТ</button>
             </div>
         </div>
     </div>
@@ -94,7 +94,7 @@
                     <div *ngIf="adminSessionService.isAuthorizated" class="products-itmes__admin-wrapper">
                         <img (click)="GoToEditMode(product)" src="../../../assets/images/admin-edit.svg"
                             class="products-items__icon">
-                        <img (click)="AdminDeleteProduct(product.id)" src="../../../assets/images/admin-close.svg"
+                        <img (click)="deleteQuestion =true; deletedProductId =product.id" src="../../../assets/images/admin-close.svg"
                             class="products-items__icon">
                     </div>
                     <!--- Admin-panel element end --->

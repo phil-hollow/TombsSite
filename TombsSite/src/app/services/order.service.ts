@@ -64,5 +64,11 @@ export class OrderService {
       }
     })
   }
+  ClearOrder(){
+    this.order = new Order();
+    this.orderSum =0;
+    sessionStorage.removeItem("order");
+    sessionStorage.removeItem("orderSum");
+  }
   
 }

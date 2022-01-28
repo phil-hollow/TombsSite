@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment.prod';
   styleUrls: ['./orders-confirmation-page.component.scss']
 })
 export class OrdersConfirmationPageComponent implements OnInit {
-  
+  isOrderSuccessed:boolean =false;
   ServerImagesUrl: string = environment.serverUrl;
   constructor(public orderService:OrderService,public router:Router,private telegramService:TelegramService) {
  
@@ -32,7 +32,15 @@ export class OrdersConfirmationPageComponent implements OnInit {
   }
   SendOrder(){
     this.telegramService.SendOrderToTelegram(this.orderService.order).subscribe((res:any)=>{
-      console.log(res);
+      this.isOrderSuccessed =true;
     })
+  }
+  ClearOrder(){
+    this.isOrderSuccessed =false;
+    this.orderService.ClearOrder();
+    this.router.navigate(['/']);
+    setTimeout(()=>{
+      window.scrollTo(0,0);
+  })
   }
 }

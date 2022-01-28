@@ -1,11 +1,11 @@
 <div class="info-page" id="info-page">
     <!---------------PopUp START--------------->
-    <div class="popup">
+    <div *ngIf="isAddedToOrder" class="popup">
         <div class="popup__wrapper">
             <div class="popup__text">Товар успешно добавлен в корзину!</div>
             <div class="popup__btn-wrapper">
-                <button class="popup__btn btn">ОК</button>
-                <button class="popup__btn btn">К заказу</button>
+                <button (click)="isAddedToOrder=false" class="popup__btn btn">ОК</button>
+                <button (click)="GoToOrder()" class="popup__btn btn">К заказу</button>
             </div>
         </div>
     </div>
