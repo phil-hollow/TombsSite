@@ -26,7 +26,6 @@
         </div>
         <div class="flew-wrapper">
             <div class="nav">
-                <p *ngIf="adminSessionService.isAuthorizated">ADMIN MODE</p>
                 <input type="checkbox" id="menu__toggle">
                 <label for="menu__toggle" class="menu__btn">
                     <span></span>
@@ -38,12 +37,12 @@
                         </a>
                     </div>
                     <div class="nav__item">
-                        <a [routerLink]="['/products',0]" class="nav__link">
+                        <a (click)="NavigateTo('/products/0')" class="nav__link">
                             Каталог
                         </a>
                     </div>
                     <div class="nav__item">
-                        <a [routerLink]="['/services']" class="nav__link">
+                        <a (click)="NavigateTo('/services')" class="nav__link">
                             Услуги
                         </a>
                     </div>
@@ -54,7 +53,7 @@
                     </div>
 
                     <div class="order-cart">
-                        <a [routerLink]="['/order-confirm']" class="order-cart__link">
+                        <a (click)="NavigateTo('/order-confirm')" class="order-cart__link">
 
                             <svg class="order-cart__pic" width="70" height="70" viewBox="0 0 70 70" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">

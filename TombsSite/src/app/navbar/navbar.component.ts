@@ -21,13 +21,21 @@ export class NavbarComponent implements OnInit {
         this.router.navigate(['/']);
         setTimeout(()=>{
             window.scrollTo(0,0);
+            this.HideMenu();
         })
     }
     GoToContacts() {
         this.router.navigate(['/']);
         setTimeout(()=>{
             window.scrollTo(0, document.body.scrollHeight);
+            this.HideMenu();
         })
-       
+    }
+    NavigateTo(path:string){
+        this.router.navigate([path]);
+        this.HideMenu();
+    }
+    HideMenu(){
+        (document.getElementById('menu__toggle') as HTMLInputElement).checked = false;
     }
 }
