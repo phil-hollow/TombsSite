@@ -1,4 +1,15 @@
 <div class="products">
+    <!---------------PopUp START--------------->
+    <div class="popup">
+        <div class="popup__wrapper">
+            <div class="popup__text">Вы действительно хотите удалить товар?</div>
+            <div class="popup__btn-wrapper">
+                <button class="popup__btn btn">ДА</button>
+                <button class="popup__btn btn">НЕТ</button>
+            </div>
+        </div>
+    </div>
+    <!---------------PopUp END--------------->
     <!--- Admin-panel element start --->
     <div *ngIf="newItemMode || editMode" class="products-admin-form">
         <div *ngIf="showErrorAdminMode">

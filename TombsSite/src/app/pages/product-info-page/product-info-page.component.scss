@@ -5,15 +5,62 @@ $blackSmokeColor: #343434;
 $redColor: #c65f5f;
 
 .info-page {
-    min-height: 100%;
+    min-height: 100vh;
     color: $mainColor;
-    padding-top: 100px;
     background: url(../../../assets/images/redEllipse.png) 820px -150px no-repeat,
         url(../../../assets/images/blackEllipse.png) -235px -33% no-repeat;
     background-size: fixed;
 }
+/*--------------   POPUP START   --------------*/
+.popup {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: #000000, $alpha: 0.88);
+    z-index: 9999;
+}
+.popup__wrapper {
+    max-width: 620px;
+    width: 100%;
+    min-height: 250px;
+    position: absolute;
+    margin-top: 400px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background-color: rgba($color: #3f3f3f, $alpha: 0.95);
+    border: 4px solid $redColor;
+    border-radius: 25px;
+}
+.popup__text {
+    font-size: 26px;
+    font-weight: bold;
+    text-align: center;
+    color: $mainColor;
+    margin-top: 60px;
+}
+.popup__btn-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+}
+.popup__btn {
+    font-size: 20px;
+    font-weight: 500;
+    text-transform: uppercase;
+    max-width: 170px;
+    width: 100%;
+    height: 50px;
+    margin-right: 40px;
+    margin-bottom: 20px;
+    &:last-child {
+        margin-right: 0;
+    }
+}
+/*--------------   POPUP END   --------------*/
 .info-page__wrapper {
-    padding-top: 70px;
+    padding-top: 170px;
     margin-bottom: 70px;
     display: flex;
     flex-direction: row;
@@ -119,11 +166,11 @@ $redColor: #c65f5f;
 /* Portrait tablets and small desktops */
 @media (max-width: 991.98px) {
     .info-page {
-        padding-top: 40px;
         background: #564f4f;
     }
     .info-page__wrapper {
         flex-direction: column;
+        padding-top: 140px;
     }
     .info-page__product-photo {
         width: 500px;
@@ -138,9 +185,6 @@ $redColor: #c65f5f;
 
 /* Landscape phones and portrait tablets */
 @media (max-width: 767.98px) {
-    .info-page {
-        padding-top: 30px;
-    }
     .info-page__product-photo {
         width: 440px;
         margin-left: 20px;
@@ -149,8 +193,24 @@ $redColor: #c65f5f;
 
 /* Portrait phones and smaller */
 @media (max-width: 480.98px) {
-    .info-page {
-        padding-top: 10px;
+    .info-page__wrapper {
+        padding-top: 110px;
+    }
+    .popup__text {
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+    .popup__btn-wrapper {
+        display: flex;
+        justify-content: center;
+        margin-top: 80px;
+    }
+    .popup__btn {
+        margin-right: 30px;
+        margin-left: 10px;
+        &:last-child {
+            margin-right: 10px;
+        }
     }
     .info-page__wrapper {
         margin-bottom: 40px;
