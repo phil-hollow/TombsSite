@@ -121,7 +121,7 @@ a {
     border-radius: 25px;
     cursor: pointer;
 }
-.btn-without-hover{
+.btn-without-hover {
     background-color: $redColor;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
     color: $mainColor;
@@ -133,8 +133,13 @@ a {
     transition: 0.7s;
     transform: scale(1.05);
 }
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+@media (max-width: 320.98px) {
+    .container {
+        padding: 0 20px;
+    }
 }

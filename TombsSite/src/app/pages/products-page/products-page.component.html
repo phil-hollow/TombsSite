@@ -4,7 +4,7 @@
         <div class="popup__wrapper">
             <div class="popup__text">Вы действительно хотите удалить товар?</div>
             <div class="popup__btn-wrapper">
-                <button (click)="AdminDeleteProduct()"class="popup__btn btn">ДА</button>
+                <button (click)="AdminDeleteProduct()" class="popup__btn btn">ДА</button>
                 <button (click)="deleteQuestion=false" class="popup__btn btn">НЕТ</button>
             </div>
         </div>
@@ -18,7 +18,8 @@
         <input type="text" placeholder="Название товара" class="products-admin__input" [(ngModel)]="editedProduct.name">
         <img [src]="imgToUpload" class="products-admin__preview-pic">
         <div class="products-admin__input-wrapper">
-            <input id="upfile" (change)="HandleFileInput($event)" accept=".png,.jpg,jpeg" type="file" name="file" class="products-admin__pic-input">
+            <input id="upfile" (change)="HandleFileInput($event)" accept=".png,.jpg,jpeg" type="file" name="file"
+                class="products-admin__pic-input">
             <label (click)="ClickOnInputTypeFile()" for="products-admin__pic-input" class="products-admin__pic-btn">
                 <div class="input__file-button-text">Выберите файл</div>
             </label>
@@ -47,7 +48,7 @@
                 class="products__add-product btn-without-hover">новый продукт</button>
             <!--- Admin-panel element end --->
 
-            <button id="sorting" (click)="SortingChanged()" class="btn products-nav__btn">Сначала дешёвые</button>
+            <button id="sorting" (click)="SortingChanged()" class="btn products-nav__btn">Сначала дешевые</button>
 
             <div class="products-nav__price">
 
@@ -94,8 +95,8 @@
                     <div *ngIf="adminSessionService.isAuthorizated" class="products-itmes__admin-wrapper">
                         <img (click)="GoToEditMode(product)" src="../../../assets/images/admin-edit.svg"
                             class="products-items__icon">
-                        <img (click)="deleteQuestion =true; deletedProductId =product.id" src="../../../assets/images/admin-close.svg"
-                            class="products-items__icon">
+                        <img (click)="deleteQuestion =true; deletedProductId =product.id"
+                            src="../../../assets/images/admin-close.svg" class="products-items__icon">
                     </div>
                     <!--- Admin-panel element end --->
 

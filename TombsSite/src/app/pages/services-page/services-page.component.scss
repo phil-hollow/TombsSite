@@ -171,6 +171,9 @@ $btnHoverColor: #ad4f4f;
     margin: 7px 10px 0 0;
     cursor: pointer;
     transition-duration: 0.8s;
+    &:last-child {
+        margin-right: 0;
+    }
 }
 .services-items__icon:hover {
     transform: scale(1.2);
@@ -196,13 +199,13 @@ $btnHoverColor: #ad4f4f;
     width: 100%;
     max-height: 90px;
     overflow-y: scroll;
+    overflow-x: hidden;
     scrollbar-width: 10px;
-    scrollbar-color: $redColor white;
+    scrollbar-color: $redColor;
     padding-right: 5px;
 }
 .services__text::-webkit-scrollbar {
     width: 10px;
-    background-color: white;
 }
 .services__text::-webkit-scrollbar-thumb {
     background-color: $redColor;
@@ -277,6 +280,7 @@ $btnHoverColor: #ad4f4f;
         max-width: 600px;
         width: 100%;
         text-align: center;
+        margin: 0 auto;
         margin-bottom: 15px;
     }
     .price__block {
@@ -297,6 +301,16 @@ $btnHoverColor: #ad4f4f;
     // --- Admin-panel element start ---
     .services-admin__input {
         width: 80%;
+    }
+    // --- Admin-panel element end ---
+
+    // --- Admin-panel element start ---
+    .services__admin-wrapper {
+        display: flex;
+        margin-left: auto;
+        justify-content: space-between;
+        height: 0;
+        align-items: center;
     }
     // --- Admin-panel element end ---
     .popup__text {

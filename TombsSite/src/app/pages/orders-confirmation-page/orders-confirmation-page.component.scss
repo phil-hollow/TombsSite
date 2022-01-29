@@ -93,8 +93,8 @@ $blackCircleColor: #564f4f;
 }
 .confirmation-page__products-block {
     max-height: 500px;
+    min-width: 500px;
     margin-bottom: 40px;
-    padding-right: 10px;
     overflow-y: auto;
     overflow-x: hidden;
     scrollbar-width: 10px;
@@ -109,7 +109,7 @@ $blackCircleColor: #564f4f;
 }
 .products-item {
     display: flex;
-    min-width: 468px;
+    position: relative;
     width: 100%;
     min-height: 130px;
     margin-bottom: 20px;
@@ -157,6 +157,7 @@ $blackCircleColor: #564f4f;
     line-height: 37px;
     align-self: center;
     margin: 0 15px;
+    margin-left: auto;
 }
 .confirmation-page__products-price {
     display: flex;
@@ -283,8 +284,8 @@ $blackCircleColor: #564f4f;
     margin-left: auto;
     height: 0;
     width: 0;
-    position: relative;
-    left: -42px;
+    position: absolute;
+    left: 93%;
 }
 .products-items__icon {
     width: 30px;
@@ -339,15 +340,26 @@ $blackCircleColor: #564f4f;
         color: $mainColor;
         text-shadow: 2px 2px 2px #000000;
     }
+    // --- Admin-panel element start ---
+    .products-itmes__admin-wrapper {
+        left: 95%;
+    }
+    // --- Admin-panel element end ---
 }
 
 /* Landscape phones and portrait tablets */
 @media (max-width: 767.98px) {
+    // --- Admin-panel element start ---
+    .products-itmes__admin-wrapper {
+        left: 93%;
+    }
+    // --- Admin-panel element end ---
 }
 
 @media (max-width: 539.98px) {
     .confirmation-page__products-block {
         max-height: 100%;
+        min-width: 200px;
         overflow: hidden;
         padding-right: 0;
         scrollbar-width: 0;
@@ -390,6 +402,11 @@ $blackCircleColor: #564f4f;
     .confirmation-page__products {
         min-width: 200px;
     }
+    // --- Admin-panel element start ---
+    .products-itmes__admin-wrapper {
+        left: 91%;
+    }
+    // --- Admin-panel element end ---
 }
 /* Portrait phones and smaller */
 @media (max-width: 480.98px) {
@@ -411,10 +428,17 @@ $blackCircleColor: #564f4f;
         font-size: 22px;
         padding: 0 5px;
     }
+    // --- Admin-panel element start ---
+    .products-itmes__admin-wrapper {
+        left: 88%;
+    }
+    // --- Admin-panel element end ---
 }
-
 /* Iphone 5 */
 @media (max-width: 320.98px) {
+    .confirmation-page__products-title {
+        font-size: 45px;
+    }
     .confirmation-page__products-price {
         padding: 12px 10px;
         font-size: 20px;
@@ -422,9 +446,17 @@ $blackCircleColor: #564f4f;
 
         max-width: 230px;
     }
+    .confirmation-page__contact-title {
+        font-size: 35px;
+    }
     .confirmation-page__contact-btn {
         width: 200px;
         font-size: 20px;
         padding: 0 10px;
     }
+    // --- Admin-panel element start ---
+    .products-itmes__admin-wrapper {
+        left: 85%;
+    }
+    // --- Admin-panel element end ---
 }
