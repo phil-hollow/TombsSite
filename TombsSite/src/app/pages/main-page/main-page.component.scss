@@ -143,32 +143,16 @@ $btnHoverColor: #ad4f4f;
         left: 0%;
     }
 
-    35% {
+    47% {
         left: 0%;
     }
 
-    38% {
+    50% {
         left: -100%;
-    }
-
-    65% {
-        left: -100%;
-    }
-
-    68% {
-        left: -200%;
-    }
-
-    95% {
-        left: -200%;
-    }
-
-    99% {
-        left: -200%;
     }
 
     100% {
-        right: 200%;
+        left: -100%;
     }
 }
 .benefits__title {

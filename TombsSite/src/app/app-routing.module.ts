@@ -6,6 +6,7 @@ import { OrdersConfirmationPageComponent } from './pages/orders-confirmation-pag
 import { ProductInfoPageComponent } from './pages/product-info-page/product-info-page.component';
 import { ProductsPageComponent } from './pages/products-page/products-page.component';
 import { ServicesPageComponent } from './pages/services-page/services-page.component';
+import { WorksPageComponent } from './pages/works-page/works-page.component';
 
 const routes: Routes = [
     { path: '', component: MainPageComponent },
@@ -14,7 +15,9 @@ const routes: Routes = [
     { path: 'products/:page', component: ProductsPageComponent },
     { path: 'services', component: ServicesPageComponent },
     { path: 'admin-login', component: AdminLoginComponent },
-    { path: '**', redirectTo: '', pathMatch: 'full' }
+    { path: 'works', component: WorksPageComponent },
+    { path: '**', redirectTo: '', pathMatch: 'full' },
+
 ];
 
 @NgModule({

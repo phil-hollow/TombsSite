@@ -12,6 +12,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { AdminLoginComponent } from './pages/admin-login/admin-login.component';
 import { OrderService } from './services/order.service';
 import { FormsModule } from '@angular/forms';
+import { WorksPageComponent } from './pages/works-page/works-page.component';
 
 @NgModule({
     declarations: [
@@ -23,6 +24,7 @@ import { FormsModule } from '@angular/forms';
         ServicesPageComponent,
         NavbarComponent,
         AdminLoginComponent,
+        WorksPageComponent
     ],
     imports: [
         BrowserModule,
