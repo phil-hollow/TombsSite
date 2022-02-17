@@ -1,5 +1,16 @@
 <div class="services">
     <!---------------PopUp START--------------->
+    <div *ngIf="deleteQuestion" class="popup">
+        <div class="popup__wrapper">
+            <div class="popup__text">Вы действительно хотите удалить товар?</div>
+            <div class="popup__btn-wrapper">
+                <button (click)="AdminDeleteProductWork()" class="popup__btn btn">ДА</button>
+                <button (click)="deleteQuestion=false" class="popup__btn btn">НЕТ</button>
+            </div>
+        </div>
+    </div>
+    <!---------------PopUp END--------------->
+    <!---------------PopUp START--------------->
     <div *ngIf="isAddedToOrder" class="popup">
         <div class="popup__wrapper">
             <div class="popup__text">Услуга успешно добавлена в корзину!</div>
@@ -12,27 +23,38 @@
     <!---------------PopUp END--------------->
     <div class="container">
         <!--- Admin-panel element start --->
-        <form action="" class="services-admin-form">
-            <input type="text" placeholder="Название товара" class="services-admin__input">
-            <textarea type="text" placeholder="Описание товара" class="services-admin__input"></textarea>
-            <input type="text" placeholder="Цена" class="services-admin__input">
-            <div class="services-admin__btn-wrapper">
-                <button type="submit" class="services-admin__accept btn">ок</button>
-                <button type="submit" class="services-admin__decline btn">отменить</button>
+        <div  *ngIf="newItemMode || editMode" class="services-admin-form">
+            <div *ngIf="showErrorAdminMode">
+                <p class="services-admin__error___text">Все поля должны быть заполнены</p>
             </div>
-        </form>
+            <input type="text" placeholder="Название товара" class="services-admin__input" [(ngModel)]="editedProductWork.name">
+            <img [src]="imgToUpload" class="services-admin__preview-pic">
+        <div class="services-admin__input-wrapper">
+            <input id="upfile" (change)="HandleFileInput($event)" accept=".png,.jpg,jpeg" type="file" name="file"
+                class="services-admin__pic-input">
+            <label (click)="ClickOnInputTypeFile()" for="services-admin__pic-input" class="services-admin__pic-btn">
+                <div class="input__file-button-text">Выберите файл</div>
+            </label>
+        </div>
+            <textarea type="text" placeholder="Описание товара" class="services-admin__input" [(ngModel)]="editedProductWork.description"></textarea>
+            <input type="text" placeholder="Цена" class="services-admin__input" [(ngModel)]="editedProductWork.price">
+            <div class="services-admin__btn-wrapper">
+                <button (click)="SaveItem()" class="services-admin__accept btn">ок</button>
+                <button (click)="CancelAdminMode()" class="services-admin__decline btn">отменить</button>
+            </div>
+        </div>
         <!--- Admin-panel element end --->
         <h1 class="services__title">услуги</h1>
         <!--- Admin-panel element start --->
-        <button class="services__add-product btn">новая услуга</button>
+        <button (click)="GoToNewMode()" *ngIf="adminSessionService.isAuthorizated" class="services__add-product btn-without-hover">новая услуга</button>
         <!--- Admin-panel element end --->
         <div class="services__wrapper" *ngIf="productWorks.length > 0">
 
             <div class="services__item" *ngFor="let productWork of productWorks">
                 <!--- Admin-panel element start --->
                 <div *ngIf="adminSessionService.isAuthorizated" class="services__admin-wrapper">
-                    <img src="../../../assets/images/admin-edit.svg" class="services-items__icon">
-                    <img src="../../../assets/images/admin-close.svg" class="services-items__icon">
+                    <img src="../../../assets/images/admin-edit.svg" class="services-items__icon" (click)="GoToEditMode(productWork)">
+                    <img src="../../../assets/images/admin-close.svg" class="services-items__icon" (click)="deleteQuestion =true; deletedProductWorkId =productWork.id">
                 </div>
                 <!--- Admin-panel element end --->
                 <div class="services__item-wrapper">

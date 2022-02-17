@@ -41,7 +41,7 @@ export class ServerHelper {
             res.send(JSON.stringify(ProductHandler.GetProductWorks()));
         })
         app.post('/AddProductWork', (req, res) => {
-            ProductHandler.AddProduct(req.body.productWork);
+            ProductHandler.AddProductWork(req.body.productWork);
             res.status(200).send();
         })
         app.get('/GetProductWorkById/:id', (req, res) => {

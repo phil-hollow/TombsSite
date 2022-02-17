@@ -56,14 +56,14 @@ export class ProductHandler{
     static AddProductWork(productWork: ProductWork) {
         let productWorks: ProductWork[] = this.GetProductWorks();
         productWorks.push(productWork);
-        FileUtills.writeProductFile(JSON.stringify(productWorks));
+        FileUtills.writeProductWorksFile(JSON.stringify(productWorks));
     }
     static DeleteProductWorkById(id: number) {
         let productWorks: ProductWork[] = this.GetProductWorks();
         let index = productWorks.findIndex(item => item.id === id);
         if (index >= 0) {
             productWorks.splice(index, 1);
-            FileUtills.writeProductFile(JSON.stringify(productWorks));
+            FileUtills.writeProductWorksFile(JSON.stringify(productWorks));
         }
     }
     static EditProductWorkById( productWork:ProductWork){
@@ -71,7 +71,7 @@ export class ProductHandler{
         let index = productWorks.findIndex(item => item.id === productWork.id);
         if (index >= 0) {
             productWorks.splice(index, 1, productWork);
-            FileUtills.writeProductFile(JSON.stringify(productWorks));
+            FileUtills.writeProductWorksFile(JSON.stringify(productWorks));
         }
     }
 }

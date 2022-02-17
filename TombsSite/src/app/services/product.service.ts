@@ -33,13 +33,13 @@ export class ProductService {
         return this.http.get(environment.serverUrl + "/GetProductWorkById/" + id.toString());
     }
     AddProductWork(productWork: ProductWork) {
-        return this.http.post(environment.serverUrl + "/AddProductWork", { product: productWork });
+        return this.http.post(environment.serverUrl + "/AddProductWork", { productWork: productWork });
     }
     DeleteProductWorkById(id: number) {
        return this.http.get(environment.serverUrl + "/DeleteProductWorkById/" + id.toString())
     }
     EditProductWork(productWork: ProductWork){
-        return this.http.post(environment.serverUrl + "/EditProduct", { product: productWork });
+        return this.http.post(environment.serverUrl + "/EditProductWork", { productWork: productWork });
     }
     UploadImage(image:any,imgName:string){
         return this.http.post(environment.serverUrl + "/UploadImage", { img: image,imgName:imgName })

@@ -222,6 +222,8 @@ export class ProductsPageComponent implements OnInit {
             if(this.isImageChanged && this.editedProduct.picture){
                 this.subscribes.push(
                     this.productService.EditProduct(this.editedProduct).subscribe(res=>{
+                        this.editMode = false;
+                        this.ngOnInit();
                 }))
                 this.subscribes.push(
                     this.productService.UploadImage(this.imgToUpload, this.editedProduct.picture).subscribe(res=>{
@@ -229,10 +231,11 @@ export class ProductsPageComponent implements OnInit {
             }else{
                 this.subscribes.push(
                     this.productService.EditProduct(this.editedProduct).subscribe(res=>{
+                        this.editMode = false;
+                        this.ngOnInit();
                 }))
             }
-            this.editMode = false;
-            this.ngOnInit();
+           
         }
         if (this.newItemMode === true) {
             if(this.isImageChanged && this.editedProduct.picture){
