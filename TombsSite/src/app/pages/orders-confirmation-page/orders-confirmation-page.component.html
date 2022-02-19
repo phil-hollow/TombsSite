@@ -42,13 +42,13 @@
                         </div>
                     </div>
 
-                    <div class="confirmation-page__products-missing">
-                        <div class="confirmation-page__products-missing-text">корзина пуста</div>
-                        <button class="confirmation-page__products-missing-btn btn">Каталог товаров</button>
+                    <div *ngIf="this.orderService.order.productWorks.length === 0 && this.orderService.order.tombs.length === 0" class="confirmation-page__products-missing">
+                        <div  class="confirmation-page__products-missing-text">корзина пуста</div>
+                        <button [routerLink]="['/products/0']" class="confirmation-page__products-missing-btn btn">Каталог товаров</button>
                     </div>
                 </div>
 
-                <div class="confirmation-page__products-price">СУММА: {{orderService.orderSum}}грн</div>
+                <div *ngIf="this.orderService.order.productWorks.length > 0 || this.orderService.order.tombs.length > 0" class="confirmation-page__products-price">СУММА: {{orderService.orderSum}}грн</div>
             </div>
 
 

@@ -52,9 +52,15 @@ export class ProductsPageComponent implements OnInit {
                 this.activatedRoute.queryParamMap.subscribe((queryParams: any) => {
                     let params = queryParams.params;
                     if(params.cat && params.cat != 0){
-                        this.products = this.products.filter(el => {
-                            return el.category == params.cat;
-                        })
+                        if(params.cat == 1001){
+                            this.products = this.products.filter(el => {
+                                return el.category >=6 && el.category<=12;
+                           })
+                        }else{
+                            this.products = this.products.filter(el => {
+                                 return el.category == params.cat;
+                            })
+                        }
                         console.log(this.products);
                     }
                     if (params.search) {
@@ -164,7 +170,7 @@ export class ProductsPageComponent implements OnInit {
     }
     SearchProducts() {
         let searchCriteria = (document.getElementById("searchInput") as HTMLInputElement).value;
-        this.router.navigate(['/products', this.currentPage], { queryParams: { search: searchCriteria } });
+        this.router.navigate(['/products', this.currentPage], { queryParams: { search: searchCriteria }, queryParamsHandling: 'merge' });
 
     }
     PriceFromChanged() {

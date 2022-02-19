@@ -12,8 +12,8 @@ import { environment } from 'src/environments/environment.prod';
 export class OrdersConfirmationPageComponent implements OnInit {
   isOrderSuccessed:boolean =false;
   ServerImagesUrl: string = environment.serverUrl;
+  errorMessage:boolean =false;
   constructor(public orderService:OrderService,public router:Router,private telegramService:TelegramService) {
- 
   }
 
   ngOnInit(): void {
@@ -31,9 +31,13 @@ export class OrdersConfirmationPageComponent implements OnInit {
     console.log(this.orderService.order);
   }
   SendOrder(){
-    this.telegramService.SendOrderToTelegram(this.orderService.order).subscribe((res:any)=>{
-      this.isOrderSuccessed =true;
-    })
+    if(this.orderService.order.phoneNumber.length >0 && this.orderService.order.userName.length >0){
+      this.telegramService.SendOrderToTelegram(this.orderService.order).subscribe((res:any)=>{
+        this.isOrderSuccessed =true;
+      })
+    }else{
+      this.errorMessage =true;
+    }
   }
   ClearOrder(){
     this.isOrderSuccessed =false;

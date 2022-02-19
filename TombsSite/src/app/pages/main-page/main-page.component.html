@@ -1,9 +1,9 @@
 <!---------------PopUp START--------------->
-<div class="popup">
+<div *ngIf="recallMessage" class="popup">
     <div class="popup__wrapper">
         <div class="popup__text">Мы свяжемся с вами в ближайшее время.</div>
 
-        <button class="popup__btn btn">ОК</button>
+        <button (click)="recallMessage =false" class="popup__btn btn">ОК</button>
     </div>
 </div>
 <!---------------PopUp END--------------->

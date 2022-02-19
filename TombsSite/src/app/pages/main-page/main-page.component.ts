@@ -7,7 +7,8 @@ import { TelegramService } from 'src/app/services/telegram.service';
     styleUrls: ['./main-page.component.scss']
 })
 export class MainPageComponent implements OnInit {
-
+  recallMessage:boolean =false;
+  errorMessage:boolean =false;
     constructor(private telegramService:TelegramService) { }
 
     ngOnInit(): void {
@@ -15,7 +16,13 @@ export class MainPageComponent implements OnInit {
     SendRecallMeMessage(){
       let name=  (document.getElementById("name") as HTMLInputElement).value;
       let phone=  (document.getElementById("phone") as HTMLInputElement).value;
-      this.telegramService.SendRecallMeToTelegram(name,phone).subscribe(res=>{});
+      if(name.length >0 && name.length >0){
+        this.telegramService.SendRecallMeToTelegram(name,phone).subscribe(res=>{
+          this.recallMessage =true;
+        });
+      }else{
+        this.errorMessage =true;
+      }
     }
 
     //var slides = document.querySelectorAll('.slides .slide');

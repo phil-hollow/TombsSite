@@ -61,7 +61,7 @@
 
             <div class="products-nav__search">
 
-                <input id="searchInput" type="text" class="products-nav__search-input">
+                <input id="searchInput" (change)="SearchProducts()" type="text" class="products-nav__search-input">
                 <input (click)="SearchProducts()" class="products-nav__search-btn2" type="submit" value="">
             </div>
         </div>
@@ -75,7 +75,7 @@
                 <div (click)="ChangeCategory(4)" class="prducts-filters__item">Мемориальные комплексы</div>
                 <div (click)="ChangeCategory(5)" class="prducts-filters__item">Эксклюзивные памятники из гранита</div>
                 <div class="prducts-filters__item">
-                    <div class="products__item-name">Гравировка и художественное оформление</div>
+                    <div (click)="ChangeCategory(1001)" class="products__item-name">Гравировка и художественное оформление</div>
                     <div (click)="ChangeCategory(6)" class="prducts-filters__item-subname">Лицевое</div>
                     <div (click)="ChangeCategory(7)" class="prducts-filters__item-subname">Обратное</div>
                     <div (click)="ChangeCategory(8)" class="prducts-filters__item-subname">Иконы</div>
