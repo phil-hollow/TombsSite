@@ -12,7 +12,7 @@
     <!---------------PopUp END--------------->
     <!--- Admin-panel element start --->
     <div *ngIf="addMode" class="works-admin-form">
-        <img [src]="imgToUpload" class="works-admin__preview-pic">
+        <img [src]="imgToUpload" class="works-admin__preview-pic" alt="изображение не выбрано">
         <div class="works-admin__input-wrapper">
             <input id="upfile" (change)="HandleFileInput($event)" accept=".png,.jpg,jpeg" type="file" name="file"
                 class="works-admin__pic-input">
@@ -30,7 +30,8 @@
         <div class="works-title">Наши работы</div>
 
         <!--- Admin-panel element start --->
-        <button (click)="addMode =true" *ngIf="adminSessionService.isAuthorizated" class="works__add-pic btn-without-hover">Добавить фото</button>
+        <button (click)="addMode =true" *ngIf="adminSessionService.isAuthorizated"
+            class="works__add-pic btn-without-hover">Добавить фото</button>
         <!--- Admin-panel element end --->
 
         <div class="works-slides-row">
@@ -39,7 +40,8 @@
 
                     <!--- Admin-panel element start --->
                     <div *ngIf="adminSessionService.isAuthorizated" class="works__admin-wrapper">
-                        <img (click)="deleteQuestion =true; deletedWorkImage =worksImage" src="../../../assets/images/admin-close.svg" class="works__icon">
+                        <img (click)="deleteQuestion =true; deletedWorkImage =worksImage"
+                            src="../../../assets/images/admin-close.svg" class="works__icon">
                     </div>
                     <!--- Admin-panel element end --->
                     <img src="{{ServerImagesUrl +'/images/'+worksImage}}" alt="" class="works-slide-pic">
