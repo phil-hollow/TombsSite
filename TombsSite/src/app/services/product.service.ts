@@ -44,4 +44,13 @@ export class ProductService {
     UploadImage(image:any,imgName:string){
         return this.http.post(environment.serverUrl + "/UploadImage", { img: image,imgName:imgName })
     }
+    UploadWorkImage(image:any,imgName:string){
+        return this.http.post(environment.serverUrl + "/UploadWorkImage", { img: image,imgName:imgName })
+    }
+    GetWorksImages(){
+        return this.http.get(environment.serverUrl + "/GetWorksImages")
+    }
+    DeleteWorksImage(name:string){
+        return this.http.post(environment.serverUrl + "/DeleteWorksImage",{name:name});
+    }
 }

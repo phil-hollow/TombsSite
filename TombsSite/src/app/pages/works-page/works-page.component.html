@@ -1,113 +1,48 @@
 <div class="works">
     <!---------------PopUp START--------------->
-    <div class="popup">
+    <div *ngIf="deleteQuestion" class="popup">
         <div class="popup__wrapper">
             <div class="popup__text">Вы действительно хотите удалить товар?</div>
             <div class="popup__btn-wrapper">
-                <button class="popup__btn btn">ДА</button>
-                <button class="popup__btn btn">НЕТ</button>
+                <button (click)="DeleteWorkImage()" class="popup__btn btn">ДА</button>
+                <button (click)="deleteQuestion =false" class="popup__btn btn">НЕТ</button>
             </div>
         </div>
     </div>
     <!---------------PopUp END--------------->
     <!--- Admin-panel element start --->
-    <div class="works-admin-form">
-        <div>
-            <p class="works-admin__error___text">Все поля должны быть заполнены</p>
-        </div>
-        <img class="works-admin__preview-pic">
+    <div *ngIf="addMode" class="works-admin-form">
+        <img [src]="imgToUpload" class="works-admin__preview-pic">
         <div class="works-admin__input-wrapper">
-            <input accept=".png,.jpg,jpeg" type="file" name="file" class="works-admin__pic-input">
-            <label class="works-admin__pic-btn">
+            <input id="upfile" (change)="HandleFileInput($event)" accept=".png,.jpg,jpeg" type="file" name="file"
+                class="works-admin__pic-input">
+            <label (click)="ClickOnInputTypeFile()" for="works-admin__pic-input" class="works-admin__pic-btn">
                 <div class="input__file-button-text">Выберите файл</div>
             </label>
         </div>
-        <input type="text" placeholder="Название картинки" class="works-admin__input">
-
         <div class="works-admin__btn-wrapper">
             <button class="works-admin__accept btn">ок</button>
-            <button class="works-admin__decline btn">отменить</button>
+            <button (click)="addMode=false" class="works-admin__decline btn">отменить</button>
         </div>
     </div>
     <!--- Admin-panel element end --->
-    <div class="works-container">
+    <div *ngIf="!addMode" class="works-container">
         <div class="works-title">Наши работы</div>
 
         <!--- Admin-panel element start --->
-        <button class="works__add-pic btn-without-hover">Добавить фото</button>
+        <button (click)="addMode =true" *ngIf="adminSessionService.isAuthorizated" class="works__add-pic btn-without-hover">Добавить фото</button>
         <!--- Admin-panel element end --->
 
         <div class="works-slides-row">
-            <div class="works-slides-column">
+            <div *ngFor="let worksImage of worksImages" class="works-slides-column">
                 <figure class="works-slide">
 
                     <!--- Admin-panel element start --->
-                    <div class="works__admin-wrapper">
-                        <img src="../../../assets/images/admin-close.svg" class="works__icon">
+                    <div *ngIf="adminSessionService.isAuthorizated" class="works__admin-wrapper">
+                        <img (click)="deleteQuestion =true; deletedWorkImage =worksImage" src="../../../assets/images/admin-close.svg" class="works__icon">
                     </div>
                     <!--- Admin-panel element end --->
-                    <img src="../../../assets/images/test/1.jpg" alt="" class="works-slide-pic">
-                    <figcaption class="works-slide-text">Котик номер 1</figcaption>
-                </figure>
-            </div>
-
-            <div class="works-slides-column">
-                <figure class="works-slide">
-                    <!--- Admin-panel element start --->
-                    <div class="works__admin-wrapper">
-                        <img src="../../../assets/images/admin-close.svg" class="works__icon">
-                    </div>
-                    <!--- Admin-panel element end --->
-                    <img src="../../../assets/images/test/2.jpg" alt="" class="works-slide-pic">
-                    <figcaption class="works-slide-text">Котик номер 2</figcaption>
-                </figure>
-            </div>
-
-            <div class="works-slides-column">
-                <figure class="works-slide">
-                    <!--- Admin-panel element start --->
-                    <div class="works__admin-wrapper">
-                        <img src="../../../assets/images/admin-close.svg" class="works__icon">
-                    </div>
-                    <!--- Admin-panel element end --->
-                    <img src="../../../assets/images/test/3.jpg" alt="" class="works-slide-pic">
-                    <figcaption class="works-slide-text">Котик номер 3</figcaption>
-                </figure>
-            </div>
-
-            <div class="works-slides-column">
-                <figure class="works-slide">
-                    <!--- Admin-panel element start --->
-                    <div class="works__admin-wrapper">
-                        <img src="../../../assets/images/admin-close.svg" class="works__icon">
-                    </div>
-                    <!--- Admin-panel element end --->
-                    <img src="../../../assets/images/test/4.jpg" alt="" class="works-slide-pic">
-                    <figcaption class="works-slide-text">Котик номер 4</figcaption>
-                </figure>
-            </div>
-
-            <div class="works-slides-column">
-                <figure class="works-slide">
-                    <!--- Admin-panel element start --->
-                    <div class="works__admin-wrapper">
-                        <img src="../../../assets/images/admin-close.svg" class="works__icon">
-                    </div>
-                    <!--- Admin-panel element end --->
-                    <img src="../../../assets/images/test/5.jpg" alt="" class="works-slide-pic">
-                    <figcaption class="works-slide-text">Котик номер 5</figcaption>
-                </figure>
-            </div>
-
-            <div class="works-slides-column">
-                <figure class="works-slide">
-                    <!--- Admin-panel element start --->
-                    <div class="works__admin-wrapper">
-                        <img src="../../../assets/images/admin-close.svg" class="works__icon">
-                    </div>
-                    <!--- Admin-panel element end --->
-                    <img src="../../../assets/images/test/6.jpg" alt="" class="works-slide-pic">
-                    <figcaption class="works-slide-text">Котик номер 6</figcaption>
+                    <img src="{{ServerImagesUrl +'/images/'+worksImage}}" alt="" class="works-slide-pic">
                 </figure>
             </div>
         </div>

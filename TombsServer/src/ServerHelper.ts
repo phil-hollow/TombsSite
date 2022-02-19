@@ -13,6 +13,7 @@ export class ServerHelper {
         app.use(bodyParser.urlencoded({ extended: false, limit: '50mb' }));
         app.use(bodyParser.json({limit:'50mb'}));
         app.use('/images',express.static(__dirname+'/Data/images'));
+        app.use('/worksImages',express.static(__dirname+'/Data/works-images'));
         app.use(function (req, res, next) {
             res.setHeader('Access-Control-Allow-Origin', '*');
             res.setHeader('Access-Control-Allow-Methods', '*');
@@ -60,6 +61,16 @@ export class ServerHelper {
             ImageHandler.deleteUnusedImages();
             res.status(200).send();
         })
-
+        app.post('/UploadWorkImage',(req,res)=>{
+            ImageHandler.uploadWorkImg(req.body.img,req.body.imgName);
+            res.status(200).send();
+        })
+        app.get('/GetWorksImages',(req,res)=>{
+            res.send(JSON.stringify(FileUtills.getWorksImages()));
+        })
+        app.post('/DeleteWorksImage',(req,res)=>{
+            FileUtills.deleteWorksImage(req.body.name);
+            res.status(200).send();
+        })
     }
 }

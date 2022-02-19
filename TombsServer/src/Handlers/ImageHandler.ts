@@ -10,7 +10,13 @@ export class ImageHandler{
         file = file.replace(/^data:image\/png;base64,/, "");
         file = file.replace(/^data:image\/jpeg;base64,/, "");
         file = file.replace(/^data:image\/jpg;base64,/, "");
-        FileUtills.saveBase64File(filename, file);
+        FileUtills.saveBase64FileImages(filename, file);
+    }
+    static uploadWorkImg(file:string,filename:string) {
+        file = file.replace(/^data:image\/png;base64,/, "");
+        file = file.replace(/^data:image\/jpeg;base64,/, "");
+        file = file.replace(/^data:image\/jpg;base64,/, "");
+        FileUtills.saveBase64FileWorksImages(filename, file);
     }
     static deleteUnusedImages(){
         let mas = new Array<any>();
@@ -22,5 +28,5 @@ export class ImageHandler{
                 FileUtills.deleteImage(img);
             }
         })
-    }
+    }  
 }

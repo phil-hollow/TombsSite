@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ProductService } from 'src/app/services/product.service';
-import { Tomb } from 'src/app/models/tomb';
+import { Category, Tomb } from 'src/app/models/tomb';
 import { environment } from 'src/environments/environment.prod';
 import { AdminSessionService } from 'src/app/services/admin-session.service';
 import { HttpParams } from '@angular/common/http';
@@ -33,6 +33,7 @@ export class ProductsPageComponent implements OnInit {
     isImageChanged: boolean =false;
     deleteQuestion:boolean =false;
     deletedProductId:number =-1;
+    currentCategory: Category = Category.None;
     constructor(private productService: ProductService,
         private activatedRoute: ActivatedRoute,
         private router: Router,
@@ -50,6 +51,12 @@ export class ProductsPageComponent implements OnInit {
             this.subscribes.push(
                 this.activatedRoute.queryParamMap.subscribe((queryParams: any) => {
                     let params = queryParams.params;
+                    if(params.cat && params.cat != 0){
+                        this.products = this.products.filter(el => {
+                            return el.category == params.cat;
+                        })
+                        console.log(this.products);
+                    }
                     if (params.search) {
                         this.products = this.products.filter(el => {
                             return el.name?.toLowerCase().includes(params.search.toLowerCase()) ||
@@ -102,7 +109,6 @@ export class ProductsPageComponent implements OnInit {
                     }
                 })
             );
-
             this.CalculateAllPages();
             this.CheckCurrentPage();
             this.GetCurrentProducts();
@@ -177,6 +183,10 @@ export class ProductsPageComponent implements OnInit {
             this.router.navigate(['/products', this.currentPage], { queryParams: { sort: 'expensive' }, queryParamsHandling: 'merge' });
         }
 
+    }
+    ChangeCategory(category:number){
+            this.router.navigate(['/products', this.currentPage], { queryParams: { cat: category }, queryParamsHandling: 'merge' });
+        
     }
     AdminDeleteProduct() {
         this.subscribes.push(
