@@ -15,6 +15,7 @@ export class WorksPageComponent implements OnInit {
     deleteQuestion =false;
     addMode =false;
     imgToUpload:any;
+    fileExtension: string ="";
     constructor(public adminSessionService: AdminSessionService,
         private productService:ProductService) { }
 
@@ -30,9 +31,10 @@ export class WorksPageComponent implements OnInit {
         })
     }
     UploadWorksImage(){
-        this.productService.UploadWorkImage(this.imgToUpload,Date.now().toString()).subscribe(res=>{
+        this.productService.UploadWorkImage(this.imgToUpload,Date.now().toString() + this.fileExtension).subscribe(res=>{
             this.addMode =false;
             this.imgToUpload = undefined;
+            this.fileExtension ="";
             this.ngOnInit();   
         })
     }
@@ -46,7 +48,7 @@ export class WorksPageComponent implements OnInit {
         let splitedFilePath = file.name.split(".")
         
         const fileExtension = "." + splitedFilePath[splitedFilePath.length - 1]//.match(extensionRegex)[0];
-      
+        this.fileExtension = fileExtension;
         if (".jpeg, .JPEG, .png, .PNG, .JPG, .jpg".includes(fileExtension)) {
           const reader = new FileReader();
             

@@ -61,7 +61,7 @@
                     placeholder="ФИО">
                 <input (change)="PhoneChanged($event)" type="text" class="confirmation-page__contact-input"
                     placeholder="Телефон">
-                <div class="confirmation-page__contact-input-error">Поля ФИО и Телефон должны быть заполнены</div>
+                <div *ngIf="errorMessage" class="confirmation-page__contact-input-error">Поля ФИО и Телефон должны быть заполнены</div>
                 <textarea (change)="CommentChanged($event)" name="" class="confirmation-page__contact-textarea"
                     placeholder="Комментарий к заказу"></textarea>
                 <button (click)="SendOrder()" class="confirmation-page__contact-btn btn">оформить заказ</button>
