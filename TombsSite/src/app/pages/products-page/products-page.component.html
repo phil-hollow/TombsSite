@@ -31,6 +31,27 @@
         <input id="price" type="number" placeholder="Цена" class="products-admin__input" min="0" step="1" max="99999999"
             (keydown)="$event.keyCode == 188 ||$event.keyCode == 189 || $event.keyCode == 187 || $event.keyCode == 69 || $event.keyCode ==190 ? false : true"
             [(ngModel)]="editedProduct.price">
+        <div class="products-admin__filters-wrapper">
+            <div class="products-admin__filter-title">Фильтры</div>
+            <select size="1" class="products-admin__filters" multiple>
+                <option value="" class="products-admin__filters-item">Все</option>
+                <option value="" class="products-admin__filters-item">Памятники гранитные одинарные</option>
+                <option value="" class="products-admin__filters-item">Памятники гранитные двойные</option>
+                <option value="" class="products-admin__filters-item">Мемориальные комплексы</option>
+                <option value="" class="products-admin__filters-item">Эксклюзивные памятники из гранита</option>
+                <optgroup label="Гравировка и худ. оформление">
+                    <option value="">Лицевое</option>
+                    <option value="">Обратное</option>
+                    <option value="">Иконы</option>
+                    <option value="">Ангелы</option>
+                    <option value="">Храмы</option>
+                    <option value="">Природа</option>
+                    <option value="">Другое</option>
+                </optgroup>
+                <option value="" class="products-admin__filters-item">Вазы, шары, лампады</option>
+                <option value="" class="products-admin__filters-item">Фото в стекле</option>
+            </select>
+        </div>
         <div class="products-admin__btn-wrapper">
             <button (click)="SaveItem()" class="products-admin__accept btn">ок</button>
             <button (click)="CancelAdminMode()" class="products-admin__decline btn">отменить</button>
@@ -75,7 +96,8 @@
                 <div (click)="ChangeCategory(4)" class="prducts-filters__item">Мемориальные комплексы</div>
                 <div (click)="ChangeCategory(5)" class="prducts-filters__item">Эксклюзивные памятники из гранита</div>
                 <div class="prducts-filters__item">
-                    <div (click)="ChangeCategory(1001)" class="products__item-name">Гравировка и художественное оформление</div>
+                    <div (click)="ChangeCategory(1001)" class="products__item-name">Гравировка и художественное
+                        оформление</div>
                     <div (click)="ChangeCategory(6)" class="prducts-filters__item-subname">Лицевое</div>
                     <div (click)="ChangeCategory(7)" class="prducts-filters__item-subname">Обратное</div>
                     <div (click)="ChangeCategory(8)" class="prducts-filters__item-subname">Иконы</div>

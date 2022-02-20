@@ -65,7 +65,7 @@ $btnHoverColor: #ad4f4f;
     margin-right: -50%;
     transform: translate(-50%, -50%);
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     background-color: rgb(235, 235, 235);
 }
 .services-admin__input {
@@ -158,6 +158,7 @@ $btnHoverColor: #ad4f4f;
 .services {
     position: relative;
     color: $blackColor;
+    min-height: 100vh;
 }
 
 .services__title {
@@ -188,6 +189,10 @@ $btnHoverColor: #ad4f4f;
     flex-direction: column;
 }
 .services__item {
+    position: relative;
+    top: 0;
+    left: 0;
+    display: flex;
     min-height: 200px;
     padding: 15px;
     margin-bottom: 20px;
@@ -203,12 +208,15 @@ $btnHoverColor: #ad4f4f;
     display: flex;
     flex-direction: row;
     align-items: center;
+    width: 100%;
 }
 // --- Admin-panel element start ---
 .services__admin-wrapper {
+    position: relative;
+    top: 0;
+    left: 0;
+    text-align: center;
     display: flex;
-    margin-left: auto;
-    justify-content: flex-end;
     height: 0;
     align-items: center;
 }
@@ -227,6 +235,7 @@ $btnHoverColor: #ad4f4f;
 // --- Admin-panel element end ---
 .services__pic {
     max-width: 150px;
+    max-height: 150px;
     width: 100%;
     margin-right: 20px;
 }
@@ -259,7 +268,6 @@ $btnHoverColor: #ad4f4f;
 .price__block {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
 }
 .services__price {
     font-weight: bold;

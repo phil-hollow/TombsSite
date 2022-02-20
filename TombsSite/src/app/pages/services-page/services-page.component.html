@@ -54,14 +54,6 @@
         <div class="services__wrapper" *ngIf="productWorks.length > 0">
 
             <div class="services__item" *ngFor="let productWork of productWorks">
-                <!--- Admin-panel element start --->
-                <div *ngIf="adminSessionService.isAuthorizated" class="services__admin-wrapper">
-                    <img src="../../../assets/images/admin-edit.svg" class="services-items__icon"
-                        (click)="GoToEditMode(productWork)">
-                    <img src="../../../assets/images/admin-close.svg" class="services-items__icon"
-                        (click)="deleteQuestion =true; deletedProductWorkId =productWork.id">
-                </div>
-                <!--- Admin-panel element end --->
                 <div class="services__item-wrapper">
                     <img src="{{ServerImagesUrl +'/images/'+productWork.picture}}" alt="" class="services__pic">
                     <div class="text__block">
@@ -73,6 +65,14 @@
                         <div (click)="AddToOrder(productWork)" class="services__btn btn">заказать</div>
                     </div>
                 </div>
+                <!--- Admin-panel element start --->
+                <div *ngIf="adminSessionService.isAuthorizated" class="services__admin-wrapper">
+                    <img src="../../../assets/images/admin-edit.svg" class="services-items__icon"
+                        (click)="GoToEditMode(productWork)">
+                    <img src="../../../assets/images/admin-close.svg" class="services-items__icon"
+                        (click)="deleteQuestion =true; deletedProductWorkId =productWork.id">
+                </div>
+                <!--- Admin-panel element end --->
             </div>
         </div>
     </div>
