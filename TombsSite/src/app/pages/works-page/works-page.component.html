@@ -12,6 +12,7 @@
     <!---------------PopUp END--------------->
     <!--- Admin-panel element start --->
     <div *ngIf="addMode" class="works-admin-form">
+        <div class="works-admin-form__title">Добавить картинку</div>
         <img *ngIf="imgToUpload" [src]="imgToUpload" class="works-admin__preview-pic" alt="изображение не выбрано">
         <div class="works-admin__input-wrapper">
             <input id="upfile" (change)="HandleFileInput($event)" accept=".png,.jpg,jpeg" type="file" name="file"

@@ -1,5 +1,4 @@
 .works {
-    padding-bottom: 50px;
 }
 /*--------------   POPUP START   --------------*/
 .popup {
@@ -55,13 +54,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    position: absolute;
-    top: 500px;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%);
     width: 100%;
     height: 100vh;
+    padding-top: 150px;
     background-color: rgb(235, 235, 235);
 }
 .works-admin__input-wrapper {
@@ -69,6 +64,15 @@
     position: relative;
     margin: 20px 0;
     text-align: center;
+}
+.works-admin-form__title {
+    color: #c65f5f;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    padding: 0 10px;
 }
 .works-admin__pic-input {
     opacity: 0;
@@ -102,11 +106,9 @@
     margin: 0 auto;
 }
 .works-admin__preview-pic {
-    max-width: 170px;
-    height: 170px;
+    max-width: 290px;
     width: 100%;
-    padding: 3px;
-    border: 1px solid black;
+
     text-align: center;
 }
 .works-admin__input {
@@ -152,6 +154,7 @@
     position: relative;
     width: 98%;
     margin: 0 auto;
+    padding-bottom: 50px;
 }
 
 .works-title {
